@@ -2,6 +2,7 @@ package com.wjb.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.wjb.base.BaseController;
 import com.wjb.mapper.OfferMapper;
 import com.wjb.model.Offer;
 import com.wjb.service.OfferService;
@@ -15,15 +16,14 @@ import org.springframework.web.bind.annotation.*;
  */
 @Controller
 @RequestMapping("offer")
-public class OfferController {
+public class OfferController extends BaseController{
     @Autowired
     private OfferService offerService;
-    @Autowired
-    private OfferMapper offerMapper;
+
 
     @GetMapping("list")
     public String list(){
-        return "offer/offer";
+        return "pagination/angularjs_bootstrap";
     }
 
     /**
@@ -36,9 +36,11 @@ public class OfferController {
     @GetMapping("getOffer")
     public SimpleResult getOffer(Integer pageNum, Integer size, String startDate, String endDate){
         PageHelper.startPage(pageNum == null ? 1 : pageNum, size == null ? 3 : size);
+        map.put("startDate",startDate);
+        map.put("endDate",endDate);
         try {
-            PageInfo<Offer> offer = offerService.getOffer(startDate,endDate);
-                return new SimpleResult(offer);
+            PageInfo<Offer> offer = offerService.getOffer(map);
+            return new SimpleResult(offer);
         } catch (Exception e) {
             e.printStackTrace();
             return new SimpleResult(-1,"query error",null);
@@ -58,7 +60,7 @@ public class OfferController {
 //        countryId = countryId == null ? null :countryId;
 //        PageHelper.startPage(pageNum == null ? 1 : pageNum, size == null ? 3 : size);
 //        try {
-//            PageInfo<Offer> offer = offerService.getHistoryOffer(startDate,endDate,countryId,type);
+//            PageInfo<OfferService> offer = offerService.getHistoryOffer(startDate,endDate,countryId,type);
 //            return new SimpleResult(offer);
 //        } catch (Exception e) {
 //            e.printStackTrace();
@@ -77,7 +79,7 @@ public class OfferController {
 //    */
 //    @ResponseBody
 //    @PostMapping("upOffer")
-//    public SimpleResult updateOffer(@RequestBody Offer offer){
+//    public SimpleResult updateOffer(@RequestBody OfferService offer){
 //        offer.setType(0);
 //        if (null == offer){
 //            return new SimpleResult(-1,"offer is null",null);
@@ -99,7 +101,7 @@ public class OfferController {
 //    */
 //    @ResponseBody
 //    @PostMapping("delete")
-//    public SimpleResult delete(@RequestBody Offer offer){
+//    public SimpleResult delete(@RequestBody OfferService offer){
 //        try {
 //            offerService.delete(offer.getId());
 //            return new SimpleResult(0,"删除成功");

@@ -1,7 +1,8 @@
-package com.wjb.service;
+package com.wjb.service.impl;
 
 import com.wjb.mapper.PicMapper;
 import com.wjb.model.Pic;
+import com.wjb.service.PicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

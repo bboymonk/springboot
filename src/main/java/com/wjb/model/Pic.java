@@ -1,8 +1,9 @@
 package com.wjb.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Pic {
+public class Pic implements Serializable {
     private Integer id;
 
     private String picpath;

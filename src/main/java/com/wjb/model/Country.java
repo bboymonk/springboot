@@ -1,8 +1,9 @@
 package com.wjb.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Country {
+public class Country implements Serializable {
     private Integer id;
 
     private String name;

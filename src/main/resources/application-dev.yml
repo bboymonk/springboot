@@ -5,7 +5,7 @@ spring:
   datasource:
       type: com.alibaba.druid.pool.DruidDataSource
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://127.0.0.1:3306/smbms
+      url: jdbc:mysql://127.0.0.1:3306/buyback
       username: root
       password: wjb
       max-active: 20

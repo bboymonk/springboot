@@ -1,9 +1,10 @@
 package com.wjb.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class Offer {
+public class Offer implements Serializable {
     private Integer id;
 
     private Integer countryId;
@@ -15,6 +16,9 @@ public class Offer {
     private Integer type;
 
     private Date createTime;
+
+    private String name;
+    private String symbol;
 
     public Integer getId() {
         return id;
@@ -62,5 +66,21 @@ public class Offer {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 }

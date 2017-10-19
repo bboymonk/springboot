@@ -105,7 +105,7 @@
   </update>
 
 
-  <select id="getOffer" parameterType="String" resultType="com.wjb.model.Offer">
+  <select id="getOffer" parameterType="java.util.Map" resultType="com.wjb.model.Offer">
     SELECT tc.name,tc.symbol,tf.*
     FROM t_country tc,t_offer tf
     WHERE tf.country_id = tc.id and type = 0

@@ -18,7 +18,16 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-
+/**
+ * 不同项目之间接口调用工具类
+ * 使用示例:
+	String json = HttpUtil.doGet(VALIDATE_URL);
+	ObjectMapper mapper = new ObjectMapper();
+	SimpleResult result = mapper.readValue(json, SimpleResult.class);
+*@Author:wjb
+*@params:
+*@Date:16:15 2017/10/19
+*/
 public class HttpUtil {
 	private final static String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36";
 
