@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wjb.mapper.ProviderMapper" >
+  <resultMap id="BaseResultMap" type="com.wjb.model.Provider" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="proCode" property="procode" jdbcType="VARCHAR" />
+    <result column="proName" property="proname" jdbcType="VARCHAR" />
+    <result column="proDesc" property="prodesc" jdbcType="VARCHAR" />
+    <result column="proContact" property="procontact" jdbcType="VARCHAR" />
+    <result column="proPhone" property="prophone" jdbcType="VARCHAR" />
+    <result column="proAdress" property="proadress" jdbcType="VARCHAR" />
+    <result column="proFax" property="profax" jdbcType="VARCHAR" />
+    <result column="createBy" property="createby" jdbcType="BIGINT" />
+    <result column="creationDate" property="creationdate" jdbcType="TIMESTAMP" />
+    <result column="modifyBy" property="modifyby" jdbcType="BIGINT" />
+    <result column="modifyDate" property="modifydate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, proCode, proName, proDesc, proContact, proPhone, proAdress, proFax, createBy, 
+    creationDate, modifyBy, modifyDate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from smbms_provider
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from smbms_provider
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.wjb.model.Provider" >
+    insert into smbms_provider (id, proCode, proName, 
+      proDesc, proContact, proPhone, 
+      proAdress, proFax, createBy, 
+      creationDate, modifyBy, modifyDate
+      )
+    values (#{id,jdbcType=BIGINT}, #{procode,jdbcType=VARCHAR}, #{proname,jdbcType=VARCHAR}, 
+      #{prodesc,jdbcType=VARCHAR}, #{procontact,jdbcType=VARCHAR}, #{prophone,jdbcType=VARCHAR}, 
+      #{proadress,jdbcType=VARCHAR}, #{profax,jdbcType=VARCHAR}, #{createby,jdbcType=BIGINT}, 
+      #{creationdate,jdbcType=TIMESTAMP}, #{modifyby,jdbcType=BIGINT}, #{modifydate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wjb.model.Provider" >
+    insert into smbms_provider
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="procode != null" >
+        proCode,
+      </if>
+      <if test="proname != null" >
+        proName,
+      </if>
+      <if test="prodesc != null" >
+        proDesc,
+      </if>
+      <if test="procontact != null" >
+        proContact,
+      </if>
+      <if test="prophone != null" >
+        proPhone,
+      </if>
+      <if test="proadress != null" >
+        proAdress,
+      </if>
+      <if test="profax != null" >
+        proFax,
+      </if>
+      <if test="createby != null" >
+        createBy,
+      </if>
+      <if test="creationdate != null" >
+        creationDate,
+      </if>
+      <if test="modifyby != null" >
+        modifyBy,
+      </if>
+      <if test="modifydate != null" >
+        modifyDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="procode != null" >
+        #{procode,jdbcType=VARCHAR},
+      </if>
+      <if test="proname != null" >
+        #{proname,jdbcType=VARCHAR},
+      </if>
+      <if test="prodesc != null" >
+        #{prodesc,jdbcType=VARCHAR},
+      </if>
+      <if test="procontact != null" >
+        #{procontact,jdbcType=VARCHAR},
+      </if>
+      <if test="prophone != null" >
+        #{prophone,jdbcType=VARCHAR},
+      </if>
+      <if test="proadress != null" >
+        #{proadress,jdbcType=VARCHAR},
+      </if>
+      <if test="profax != null" >
+        #{profax,jdbcType=VARCHAR},
+      </if>
+      <if test="createby != null" >
+        #{createby,jdbcType=BIGINT},
+      </if>
+      <if test="creationdate != null" >
+        #{creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyby != null" >
+        #{modifyby,jdbcType=BIGINT},
+      </if>
+      <if test="modifydate != null" >
+        #{modifydate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wjb.model.Provider" >
+    update smbms_provider
+    <set >
+      <if test="procode != null" >
+        proCode = #{procode,jdbcType=VARCHAR},
+      </if>
+      <if test="proname != null" >
+        proName = #{proname,jdbcType=VARCHAR},
+      </if>
+      <if test="prodesc != null" >
+        proDesc = #{prodesc,jdbcType=VARCHAR},
+      </if>
+      <if test="procontact != null" >
+        proContact = #{procontact,jdbcType=VARCHAR},
+      </if>
+      <if test="prophone != null" >
+        proPhone = #{prophone,jdbcType=VARCHAR},
+      </if>
+      <if test="proadress != null" >
+        proAdress = #{proadress,jdbcType=VARCHAR},
+      </if>
+      <if test="profax != null" >
+        proFax = #{profax,jdbcType=VARCHAR},
+      </if>
+      <if test="createby != null" >
+        createBy = #{createby,jdbcType=BIGINT},
+      </if>
+      <if test="creationdate != null" >
+        creationDate = #{creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyby != null" >
+        modifyBy = #{modifyby,jdbcType=BIGINT},
+      </if>
+      <if test="modifydate != null" >
+        modifyDate = #{modifydate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wjb.model.Provider" >
+    update smbms_provider
+    set proCode = #{procode,jdbcType=VARCHAR},
+      proName = #{proname,jdbcType=VARCHAR},
+      proDesc = #{prodesc,jdbcType=VARCHAR},
+      proContact = #{procontact,jdbcType=VARCHAR},
+      proPhone = #{prophone,jdbcType=VARCHAR},
+      proAdress = #{proadress,jdbcType=VARCHAR},
+      proFax = #{profax,jdbcType=VARCHAR},
+      createBy = #{createby,jdbcType=BIGINT},
+      creationDate = #{creationdate,jdbcType=TIMESTAMP},
+      modifyBy = #{modifyby,jdbcType=BIGINT},
+      modifyDate = #{modifydate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

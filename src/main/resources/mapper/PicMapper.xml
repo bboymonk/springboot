@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wjb.mapper.PicMapper" >
+  <resultMap id="BaseResultMap" type="com.wjb.model.Pic" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="picPath" property="picpath" jdbcType="VARCHAR" />
+    <result column="creatDate" property="creatdate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, picPath, creatDate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from smbms_pic
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from smbms_pic
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wjb.model.Pic" >
+    insert into smbms_pic (id, picPath, creatDate
+      )
+    values (#{id,jdbcType=INTEGER}, #{picpath,jdbcType=VARCHAR}, #{creatdate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wjb.model.Pic" >
+    insert into smbms_pic
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="picpath != null" >
+        picPath,
+      </if>
+      <if test="creatdate != null" >
+        creatDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="picpath != null" >
+        #{picpath,jdbcType=VARCHAR},
+      </if>
+      <if test="creatdate != null" >
+        #{creatdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wjb.model.Pic" >
+    update smbms_pic
+    <set >
+      <if test="picpath != null" >
+        picPath = #{picpath,jdbcType=VARCHAR},
+      </if>
+      <if test="creatdate != null" >
+        creatDate = #{creatdate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wjb.model.Pic" >
+    update smbms_pic
+    set picPath = #{picpath,jdbcType=VARCHAR},
+      creatDate = #{creatdate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

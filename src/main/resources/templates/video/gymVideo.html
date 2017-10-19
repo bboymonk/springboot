@@ -1,0 +1,349 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: wjb
+  Date: 2017/3/10
+  Time: 18:04
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+
+
+
+    <link rel="stylesheet" type="text/css" href="../../static/css/video/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/video/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/video/cropper.min.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/video/common-b.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/video/swiper.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/video/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/video/index.css">
+
+    <script defer src="../../static/js/video/lib.js"></script>
+    <script defer src="../../static/js/video/vendor.js"></script>
+
+    <!-- Baidu TongJi -->
+    <script defer>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?93888c4a36c82ca99c9f3d008e89dac6";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    <script defer src="http://s11.cnzz.com/z_stat.php?id=1261320788&web_id=1261320788" language="JavaScript"></script>
+    <script defer src="../../static/js/video/swiper.min.js"></script>
+    <script defer src="../../static/js/video/index.js"></script>
+</head>
+
+
+
+
+
+
+<%--<body>
+
+
+<header id="mf-header">
+
+    <div class="container">
+
+        <aside class="left">
+
+            <!-- Main Navigation -->
+            <ul class="main-nav-menu">
+                <li><a href="/index/latest">最新</a></li>
+                <li><a href="/index/image">图文</a></li>
+                <li><a href="/index/video">视频</a></li>
+            </ul>
+        </aside>
+
+        <!-- Login & Register -->
+        <aside class="right">
+
+            <div class="user-center">
+                <div class="avatar">
+                    <!-- Use JavaScript to Fill Content Here -->
+                </div>
+                <div class="options">
+                    <ul>
+                        <li><a href="/user/profile">个人中心</a></li>
+                        <li><a href="/user/collection">我的收藏</a></li>
+                        <li><a href="/user/message">消息中心<span id="notification-count"></span></a></li>
+                        <li><a href="/index/logout">退出登录</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Search -->
+            <div class="search-box">
+                <input type="search" name="search" placeholder="搜索">
+                <div class="search-btn"><i class="fa fa-search"></i></div>
+            </div>
+        </aside>
+    </div>
+
+
+
+    <!-- Hamburger -->
+    <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+</header>
+
+
+<main class="mf-main">
+    <section class="container" id="banner-main">
+        <div id="banner-swiper" class="swiper-container img-wrapper img-ratio-117-50">
+            <div class="swiper-wrapper">
+
+                <a class="swiper-slide" href="/news/detail?id=167">
+                    <div class="mask"></div>
+
+                    <h1></h1>
+                </a>
+                <a class="swiper-slide" href="/news/detail?id=165">
+
+                    <div class="mask"></div>
+                    <h1></h1>
+                </a>
+                <a class="swiper-slide" href="/news/detail?id=159">
+
+                    <div class="mask"></div>
+                    <h1></h1>
+                </a>
+
+            </div>
+
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </section>
+
+    <section class="fullwidth" id="recommend">
+        <h1>今日推荐</h1>
+        <div class="list">
+
+
+            <a class="item" href="/news/detail/id/166" data-has-video="1">
+                    <video src="../../static/video/wjb.mov" controls="controls" width="300px" height="300px" preload="auto"/>
+            </a>
+
+            <a class="item" href="/news/detail/id/144" data-has-video="1">
+                    <video src="../../static/video/wjb1.mov" controls="controls" width="300px" height="300px" preload="auto"/>
+            </a>
+
+            <a class="item" href="/news/detail/id/141" data-has-video="1">
+                    <video src="../../static/video/wjb2.mov" controls="controls" width="300px" height="300px" preload="auto"/>
+            </a>
+        </div>
+    </section>
+
+
+
+
+    <section class="container" id="latest">
+        <h1>最新</h1>
+        <div class="list"></div>
+        <a href="javascript:;" class="btn btn-load">更多...</a>
+        <p class="bottom-line">我是有底线的</p>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer id="mf-footer">
+
+    <section class="container">
+        <p class="copyright">I Love You 备案号：201314</p>
+        <div class="links">
+            <ul>
+                <li><a href="/index/about#about">关于我们</a></li>
+                <li><a href="/index/about#contact">联系我们</a></li>
+                <li><a href="/index/about#privacy">隐私政策</a></li>
+                <li><a href="/index/about#terms">使用条款</a></li>
+            </ul>
+            <span class="language">中国</span>
+        </div>
+    </section>
+</footer>
+
+</body>--%>
+
+
+<body>
+<div id="mf-drawer">
+
+    <div class="search-box">
+        <input type="search" name="search" placeholder="搜索">
+        <div class="search-btn"><i class="fa fa-search"></i></div>
+    </div>
+
+    <nav class="navigation">
+        <ul>
+            <li><a href="/">首页</a></li>
+            <li><a href="/index/latest">最新</a></li>
+            <li><a href="/index/hotest">最热</a></li>
+            <li><a href="/index/image">图文</a></li>
+            <li><a href="/index/video">视频</a></li>
+            <li><a href="/jetli/index">Jetli</a></li>
+        </ul>
+    </nav>
+
+    <section class="links">
+        <ul>
+            <li class="link-downloadapp"><a target="_blank" href="/index/downloadApp">下载街力手机App</a></li>
+            <li class="link-wechat has-qrcode">
+                <a target="_blank" href="/public/static/img/qrcode-jetli-wechat.jpeg">关注街力公众微信账号</a>
+                <div class="qrcode"><img src="/public/static/img/qrcode-jetli-wechat.jpeg"></div>
+            </li>
+            <li class="link-weibo"><a target="_blank" href="http://weibo.com/jetli2016">关注街力官方微博</a></li>
+            <!-- <li class="link-signup"><a href="javascript:;">功夫真人秀海选报名通道</a></li> -->
+        </ul>
+    </section>
+</div>
+
+<header id="mf-header">
+
+    <div class="container">
+
+        <aside class="left">
+
+            <!-- Main Navigation -->
+            <ul class="main-nav-menu">
+                <li><a href="/index/latest">最新</a></li>
+                <li><a href="/index/image">图文</a></li>
+                <li><a href="/index/video">视频</a></li>
+            </ul>
+        </aside>
+
+        <!-- Login & Register -->
+        <aside class="right">
+
+            <div class="user-center">
+                <div class="avatar">
+                    <!-- Use JavaScript to Fill Content Here -->
+                </div>
+                <div class="options">
+                    <ul>
+                        <li><a href="/user/profile">个人中心</a></li>
+                        <li><a href="/user/collection">我的收藏</a></li>
+                        <li><a href="/user/message">消息中心<span id="notification-count"></span></a></li>
+                        <li><a href="/index/logout">退出登录</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Search -->
+            <div class="search-box">
+                <input type="search" name="search" placeholder="搜索">
+                <div class="search-btn"><i class="fa fa-search"></i></div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Logo -->
+    <a class="logo" href="/">
+        <img src="/public/static/img/logo.png">
+    </a>
+
+    <!-- Hamburger -->
+    <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+</header>
+
+
+<main class="mf-main">
+    <section class="container" id="banner-main">
+        <div id="banner-swiper" class="swiper-container img-wrapper img-ratio-117-50">
+            <div class="swiper-wrapper">
+
+                <a class="swiper-slide" href="/news/detail?id=167">
+                    <img src="http://cn.jetli.com/public/upload/banner/5/thumb_19681489110613.jpg">
+                    <div class="mask"></div>
+                    <h1>快住手 他可是你的亲生儿子</h1>
+                </a>
+                <a class="swiper-slide" href="/news/detail?id=165">
+                    <img src="http://cn.jetli.com/public/upload/banner/4/thumb_24721489110654.jpg">
+                    <div class="mask"></div>
+                    <h1>虎拳一击胜过真虎一爪？那是大喵在逗你玩</h1>
+                </a>
+                <a class="swiper-slide" href="/news/detail?id=159">
+                    <img src="http://cn.jetli.com/public/upload/banner/2/thumb_42051489110713.jpg">
+                    <div class="mask"></div>
+                    <h1>他溜进了开门前的冰雕公园 尽情撒欢</h1>
+                </a>
+
+            </div>
+
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </section>
+
+    <section class="fullwidth" id="recommend">
+        <h1>今日推荐</h1>
+        <div class="list">
+
+
+            <a class="item" href="/news/detail/id/166" data-has-video="1">
+                <div class="img-wrapper img-ratio-3-2">
+                    <img src="http://cn.jetli.com/public/upload/news/166/thumb_34531488953499.png">
+                    <div class="mask"></div>
+                    <div class="btn-play"><span></span></div>
+                    <div class="duration"><span>01:41</span></div>
+                </div>
+                <p>萌娃版“复仇者”出招 这次的对手是？</p>
+            </a>
+
+            <a class="item" href="/news/detail/id/144" data-has-video="1">
+                <div class="img-wrapper img-ratio-3-2">
+                    <img src="http://cn.jetli.com/public/upload/news/144/thumb_89471488255861.png">
+                    <div class="mask"></div>
+                    <div class="btn-play"><span></span></div>
+                    <div class="duration"><span>02:03</span></div>
+                </div>
+                <p>用身体当摇杆 把电子游戏玩上攀岩墙</p>
+            </a>
+
+            <a class="item" href="/news/detail/id/141" data-has-video="1">
+                <div class="img-wrapper img-ratio-3-2">
+                    <img src="http://cn.jetli.com/public/upload/news/141/thumb_26121488178217.jpg">
+                    <div class="mask"></div>
+                    <div class="btn-play"><span></span></div>
+                    <div class="duration"><span>01:34</span></div>
+                </div>
+                <p>把自己挂上直升机 云层才是我的雪场</p>
+            </a>
+        </div>
+    </section>
+
+    <section class="container" id="latest">
+        <div class="list"></div>
+        <a href="javascript:;" class="btn btn-load">更多...</a>
+        <p class="bottom-line">我是有底线的</p>
+    </section>
+</main>
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+</html>
