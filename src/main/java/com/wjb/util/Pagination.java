@@ -13,15 +13,15 @@ public class Pagination<T> {
 
     /**
     *@Author:
-    *@params: recordCount 总记录数  rows 页行数  current 当前页
+    *@params: recordCount 总记录数  size 页行数  current 当前页
     *@Date:11:14 2017/10/24
     */
-    public Pagination(int recordCount, int rows, int current) {
+    public Pagination(int recordCount, int size, int current) {
         pages = 0;
         this.recordCount = recordCount;
-        pages =  recordCount / rows;
+        pages =  recordCount / size;
         // 总页数
-        pages = (recordCount % rows == 0) ? pages : pages + 1;
+        pages = (recordCount % size == 0) ? pages : pages + 1;
         // 当前页
         this.current =  current <= 1 ? 1 : current;
     }
