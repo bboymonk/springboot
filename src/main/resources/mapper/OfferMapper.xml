@@ -105,13 +105,33 @@
   </update>
 
 
-  <select id="getOffer" parameterType="java.util.Map" resultType="com.wjb.model.Offer">
-    SELECT tc.name,tc.symbol,tf.*
-    FROM t_country tc,t_offer tf
+
+
+  <!--SELECT tc.name,tc.symbol,tf.*-->
+  <!--FROM t_country tc,t_offer tf-->
+  <!--WHERE tf.country_id = tc.id and type = 0-->
+  <!--<if test="startDate != null and endDate != null">-->
+  <!--AND tf.create_time between #{startDate} and #{endDate}-->
+  <!--</if>-->
+
+  <select id="list" resultMap="BaseResultMap">
+    SELECT * from t_offer
+  </select>
+
+  <resultMap id="offers" type="com.wjb.model.Offer">
+    <id column="id" property="id"/>
+    <result column="country_id" property="countryId" jdbcType="INTEGER" />
+    <result column="unit" property="unit" jdbcType="DECIMAL" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="name" property="name"/>
+    <result column="symbol" property="symbol"/>
+  </resultMap>
+  
+  <select id="getOffer" resultMap="offers">
+    SELECT tc.name,tc.symbol,tf.* FROM t_country tc,t_offer tf
     WHERE tf.country_id = tc.id and type = 0
-    <if test="startDate != null and endDate != null">
-      AND tf.create_time between #{startDate} and #{endDate}
-    </if>
   </select>
 
 

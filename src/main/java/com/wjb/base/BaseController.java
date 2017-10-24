@@ -63,7 +63,7 @@ public class BaseController {
     /**
      * 混合判断输出  整体抛出
      */
-    public static String SUCCESS_FAIL_T(boolean  expr, Object success, Object error){
+    public static String successOrFail(boolean  expr, Object success, Object error){
         JSONObject json = new JSONObject();
         if(expr){
             json.put("MSG","true");
@@ -76,20 +76,6 @@ public class BaseController {
     }
 
 
-    /**
-     * 混合判断输出  整体抛出
-     */
-    public static String SUCCESS_FAIL_N(boolean  expr, Object success, Object error){
-        JSONObject json = new JSONObject();
-        if(expr){
-            json.put("MSG",true);
-            json.put("DATA",success);
-        }else{
-            json.put("MSG",false);
-            json.put("DATA",error);
-        }
-        return json.toJSONString();
-    }
 
 
 

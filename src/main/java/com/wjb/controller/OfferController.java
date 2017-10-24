@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2017/10/16.
  */
@@ -26,26 +28,20 @@ public class OfferController extends BaseController{
         return "pagination/angularjs_bootstrap";
     }
 
-    /**
-     * 获取最新Offer列表
-    *@Author:
-    *@params:
-    *@Date:14:14 2017/10/16
-    */
+
     @ResponseBody
-    @GetMapping("getOffer")
-    public SimpleResult getOffer(Integer pageNum, Integer size, String startDate, String endDate){
-        PageHelper.startPage(pageNum == null ? 1 : pageNum, size == null ? 3 : size);
-        map.put("startDate",startDate);
-        map.put("endDate",endDate);
+    @GetMapping("getList")
+    public String getList(Integer pageNum, Integer size){
         try {
-            PageInfo<Offer> offer = offerService.getOffer(map);
-            return new SimpleResult(offer);
+            List<Offer> list = offerService.list();
+            return successOrFail(true,list,"error");
         } catch (Exception e) {
             e.printStackTrace();
-            return new SimpleResult(-1,"query error",null);
+            return successOrFail(false,null,"error");
         }
     }
+
+
 
 //    /**
 //     * 获取历史Offer列表
