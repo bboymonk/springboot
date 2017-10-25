@@ -129,9 +129,13 @@
     <result column="symbol" property="symbol"/>
   </resultMap>
   
-  <select id="getOffer" resultMap="offers">
+  <select id="getOffer" parameterType="java.lang.Integer" resultMap="offers">
     SELECT tc.name,tc.symbol,tf.* FROM t_country tc,t_offer tf
-    WHERE tf.country_id = tc.id and type = 0
+    WHERE tf.country_id = tc.id and type = 0 limit #{pageNum},#{size}
+  </select>
+
+  <select id="count" resultType="java.lang.Integer">
+    SELECT count(*) FROM t_offer
   </select>
 
 

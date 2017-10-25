@@ -146,11 +146,8 @@
         };
 
         $scope.pageChanged = function () {
-            if ($scope.a == 0){
                 $scope.selectByKwyword();
-            }else {
                 $scope.historyQuery($scope.countryId,$scope.type);
-            }
         };
         //查询
         $scope.query = function () {
@@ -159,18 +156,17 @@
             $scope.selectByKwyword();
         };
         $scope.selectByKwyword = function () {
-            var URL = '/offer/getOffer?pageNum=' + $scope.page.currentPage + '&size=' + $scope.page.pageSize+"&startDate="+$scope.startDate+"&endDate="+$scope.endDate+"&countryId="+$scope.countryId+"&type="+$scope.type;
+            var URL = '/offer/getList?pageNum=' + $scope.page.currentPage + '&size=' + $scope.page.pageSize+"&startDate="+$scope.startDate+"&endDate="+$scope.endDate+"&countryId="+$scope.countryId+"&type="+$scope.type;
             $http.get(URL).then(function (response) {
-                $scope.list = response.data.data.list;
-                $scope.page.totalItems = response.data.data.total;
-                console.log(response.data.data);
+                console.log(response.data);
+                $scope.list = response.data.DATA.recordset;
+                $scope.page.totalItems = response.data.DATA.recordCount;
                 if ($scope.list == null || $scope.list.length == 0) {
                     $scope.display = false;
                 } else {
                     $scope.display = true;
                 }
             });
-            $scope.a = 0;
         };
         $scope.selectByKwyword();
 
@@ -181,9 +177,8 @@
             $scope.a = 2;
             var URL = '/offer/historyOffer?pageNum=' + $scope.page.currentPage + '&size=' + $scope.page.pageSize+"&startDate="+$scope.startDate+"&endDate="+$scope.endDate+"&countryId="+countryId+"&type="+type;
             $http.get(URL).then(function (response) {
-                $scope.list = response.data.data.list;
-                $scope.page.totalItems = response.data.data.total;
-                console.log(response.data.data);
+                $scope.list = response.data.DATA.recordset;
+                $scope.page.totalItems = response.data.DATA.recorCount;
                 if ($scope.list == null || $scope.list.length == 0) {
                     $scope.display = false;
                 } else {
@@ -207,7 +202,7 @@
                     var unit = $('#txt_unit').val();
                     var price = $('#txt_price').val();
                     $http.post("/offer/upOffer",{id:id,countryId:countryId,unit:unit,price:price}).then(function (response) {
-                        if (response.data.errno != 0){
+                        if (!response.data.MSG){
                             layer.msg(response.data.txt, {icon: 2, time: 1500});
                             return false;
                         }

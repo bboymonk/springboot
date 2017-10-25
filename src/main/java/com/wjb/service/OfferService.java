@@ -2,6 +2,7 @@ package com.wjb.service;
 
 import com.wjb.base.BaseService;
 import com.wjb.model.Offer;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -11,9 +12,9 @@ import java.util.List;
 public interface OfferService extends BaseService<Offer,Long>{
 
 
-    public List<Offer> list();
+    public List<Offer> list(@Param("pageNum")Integer pageNum, @Param("size")Integer size);
 
-    public List<Offer> getOffer();
+    public List<Offer> getOffer(@Param("pageNum")Integer pageNum, @Param("size")Integer size);
 
 
 

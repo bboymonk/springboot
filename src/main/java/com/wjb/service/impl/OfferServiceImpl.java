@@ -5,6 +5,7 @@ import com.wjb.base.BaseServiceImpl;
 import com.wjb.mapper.OfferMapper;
 import com.wjb.model.Offer;
 import com.wjb.service.OfferService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,14 +25,15 @@ public class OfferServiceImpl extends BaseServiceImpl<Offer,Long> implements Off
         return offerMapper;
     }
 
+
     @Override
-    public List<Offer> list() {
-        return offerMapper.getOffer();
+    public List<Offer> list(Integer pageNum, Integer size) {
+        return offerMapper.list(pageNum,size);
     }
 
     @Override
-    public List<Offer> getOffer() {
-        return offerMapper.getOffer();
+    public List<Offer> getOffer(Integer pageNum, Integer size) {
+        return offerMapper.getOffer(pageNum,size);
     }
 
 }

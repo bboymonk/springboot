@@ -12,7 +12,9 @@ import java.util.Map;
 public interface OfferMapper extends BaseMapper<Offer,Long>{
 
 
-    List<Offer> list();
+    List<Offer> list(@Param(value = "pageNum")Integer pageNum,@Param(value = "size")Integer size);
 
-    List<Offer> getOffer();
+    List<Offer> getOffer(@Param(value = "pageNum")Integer pageNum,@Param(value = "size")Integer size);
+
+    Integer count();
 }

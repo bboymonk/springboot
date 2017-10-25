@@ -6,6 +6,7 @@ import com.wjb.base.BaseController;
 import com.wjb.mapper.OfferMapper;
 import com.wjb.model.Offer;
 import com.wjb.service.OfferService;
+import com.wjb.util.Pagination;
 import com.wjb.util.SimpleResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,8 @@ import java.util.List;
 public class OfferController extends BaseController{
     @Autowired
     private OfferService offerService;
+    @Autowired
+    private OfferMapper offerMapper;
 
 
     @GetMapping("list")
@@ -31,10 +34,15 @@ public class OfferController extends BaseController{
 
     @ResponseBody
     @GetMapping("getList")
-    public String getList(Integer pageNum, Integer size){
+    public String getList(Integer pageNum, Integer size,String startDate, String endDate){
+        pageNum = pageNum == null ? 1 : pageNum;
+        size = size == null ? 5 : size;
         try {
-            List<Offer> list = offerService.list();
-            return successOrFail(true,list,"error");
+            Integer count = offerMapper.count();
+            List<Offer> list = offerService.getOffer((pageNum-1)*size,size);
+            Pagination<Offer> pagination = new Pagination<>(count, size, pageNum);
+            pagination.setRecordset(list);
+            return successOrFail(true,pagination,"error");
         } catch (Exception e) {
             e.printStackTrace();
             return successOrFail(false,null,"error");
