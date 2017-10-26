@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50636
 File Encoding         : 65001
 
-Date: 2017-10-26 09:45:38
+Date: 2017-10-26 17:05:58
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -134,6 +134,181 @@ INSERT INTO `t_login_log` VALUES ('14', '25', '127.0.0.1', '2017-10-19 09:29:33'
 INSERT INTO `t_login_log` VALUES ('15', '25', '127.0.0.1', '2017-10-19 09:30:23');
 INSERT INTO `t_login_log` VALUES ('16', '25', '127.0.0.1', '2017-10-19 09:31:01');
 INSERT INTO `t_login_log` VALUES ('17', '24', '127.0.0.1', '2017-10-20 09:34:21');
+
+-- ----------------------------
+-- Table structure for t_menu
+-- ----------------------------
+DROP TABLE IF EXISTS `t_menu`;
+CREATE TABLE `t_menu` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `PARENT_ID` int(11) NOT NULL,
+  `MENU_NM` varchar(120) CHARACTER SET utf8 NOT NULL,
+  `MAPPING` varchar(120) CHARACTER SET utf8 NOT NULL,
+  `RANK_SORT` bigint(100) NOT NULL,
+  `PICTURE_URL` varchar(60) CHARACTER SET utf8 NOT NULL,
+  `DISP_INDEX` int(11) DEFAULT NULL,
+  `DISP_KBN` varchar(3) CHARACTER SET utf8 DEFAULT NULL,
+  `REMARKS` varchar(1000) CHARACTER SET utf8 DEFAULT NULL,
+  `STATE` int(11) NOT NULL,
+  `CREATER` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `CREATER_ID` bigint(11) DEFAULT NULL,
+  `OPERATOR` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  `OPERATOR_ID` bigint(11) DEFAULT NULL,
+  `CREATE_TIME` datetime DEFAULT NULL,
+  `UPDATE_TIME` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `MENU_NM` (`MENU_NM`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='菜单表';
+
+-- ----------------------------
+-- Records of t_menu
+-- ----------------------------
+INSERT INTO `t_menu` VALUES ('1', '0', '首页管理', '/', '-1', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('2', '0', '权限管理', '/', '4', '/', null, null, null, '1', null, null, null, null, null, '2017-02-27 15:36:59');
+INSERT INTO `t_menu` VALUES ('3', '0', '客户管理', '/', '0', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('4', '0', '设备管理', '/', '2', '/', null, null, null, '1', null, null, null, null, null, '2017-02-23 11:54:47');
+INSERT INTO `t_menu` VALUES ('5', '0', '统计分析', '/', '3', '/', null, null, null, '1', null, null, null, null, null, '2017-02-23 11:54:59');
+INSERT INTO `t_menu` VALUES ('6', '0', '商城管理', '/', '6', '/', null, null, null, '1', null, null, null, null, null, '2017-02-27 15:37:38');
+INSERT INTO `t_menu` VALUES ('7', '0', '短信管理', '/', '10', '/', null, null, null, '1', null, null, null, null, null, '2017-02-27 12:09:50');
+INSERT INTO `t_menu` VALUES ('8', '0', '知识库  ', '/', '8', '/', null, null, null, '1', null, null, null, null, null, '2017-02-23 11:14:36');
+INSERT INTO `t_menu` VALUES ('9', '2', '管理员中心', '/admin/userCenter', '1', '/', null, null, null, '1', null, null, null, null, null, '2017-02-10 15:28:34');
+INSERT INTO `t_menu` VALUES ('10', '2', '角色中心', '/admin/roleCenter', '2', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('11', '2', '资源管理', '/admin/resourceList', '3', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('12', '2', '组别管理', '/admin/roleGroup', '4', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('13', '2', '部门管理', '/admin/userGroup', '5', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('14', '2', '权限分管', '/admin/partmentGroup', '6', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('16', '1', '修改帐户信息', '/admin/index', '2', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('17', '1', '修改密码', '/admin/index', '3', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('18', '1', '首页', '/admin/index', '1', '/', null, null, null, '1', null, null, null, null, null, '2017-06-29 13:36:15');
+INSERT INTO `t_menu` VALUES ('19', '3', '客户视图', '/admin/customer/index', '1', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('20', '3', '设备视图', '/admin/customer/deviceView', '2', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('21', '3', '企业视图', '/admin/customer/companyView', '3', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('22', '30', '慢病统计报表', '/admin/customer/chartReport', '4', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('23', '4', '出入库管理', '/admin/deviceManagement/outStorage', '1', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('24', '4', '设备设置', '/admin/deviceManagement/deviceControl', '2', '/', null, null, null, '1', null, null, null, null, null, '2017-02-23 16:53:52');
+INSERT INTO `t_menu` VALUES ('25', '4', 'sim卡管理', '/admin/index', '3', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('26', '4', '退换货登记', '/admin/refundItem', '4', '/', null, null, null, '1', null, null, null, null, null, '2017-02-28 18:06:14');
+INSERT INTO `t_menu` VALUES ('27', '4', '测量日志', '/admin/index', '5', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('28', '4', '续费管理', '/admin/index', '6', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('29', '5', '设备使用统计', '/admin/statisticAnalysis/deviceStatistics', '1', '/', null, null, null, '1', null, null, null, null, null, '2017-03-06 17:06:30');
+INSERT INTO `t_menu` VALUES ('30', '5', '异常数据统计', '/admin/statisticAnalysis/unusualStatistics', '2', '/', null, null, null, '1', null, null, null, null, null, '2017-03-07 18:00:36');
+INSERT INTO `t_menu` VALUES ('31', '5', '设备销售统计', '/admin/statisticAnalysis/salesStatistics', '3', '/', null, null, null, '1', null, null, null, null, null, '2017-03-07 18:10:26');
+INSERT INTO `t_menu` VALUES ('32', '5', '回访统计', '/admin/statisticAnalysis/payStatistics', '4', '/', null, null, null, '1', null, null, null, null, null, '2017-03-10 09:41:12');
+INSERT INTO `t_menu` VALUES ('33', '5', '企业设备统计', '/admin/statisticAnalysis/expire', '5', '/', null, null, null, '1', null, null, null, null, null, '2017-03-10 09:34:52');
+INSERT INTO `t_menu` VALUES ('34', '5', '到期统计', '/admin/statisticAnalysis/expireStatistics', '6', '/', null, null, null, '1', null, null, null, null, null, '2017-03-09 09:59:40');
+INSERT INTO `t_menu` VALUES ('35', '6', '订单管理', '/admin/orderManager', '1', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('36', '6', '商城推送配置', '/admin/shopPush', '2', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('37', '7', '短信群发', '/admin/smsSend', '1', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('38', '7', '短信发送记录', '/admin/smsRecord', '2', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('39', '8', '短信模板', '/admin/repository/smsTemplate', '1', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('40', '8', '药品库', '/admin/drugStorage', '2', '/', null, null, null, '1', null, null, null, null, null, '2017-06-29 20:08:47');
+INSERT INTO `t_menu` VALUES ('41', '8', '回访模板', '/admin/index', '3', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('42', '8', '题目库', '/admin/index', '4', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('43', '8', '微信模板', '/admin/news/chatNew', '5', '/', null, null, null, '1', null, null, null, null, null, '2017-06-29 20:19:14');
+INSERT INTO `t_menu` VALUES ('44', '8', '回访结果', '/admin/index', '6', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('45', '8', '运动方案', '/admin/index', '7', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('46', '8', '运动视频', '/admin/index', '8', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('58', '30', '客户区域统计', '/admin/customer/areaChats', '5', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('59', '30', '干预随访报表', '/admin/customer/followList', '6', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('60', '30', '健康服务开展月度报表', '/admin/customer/healthStatistics', '7', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('61', '0', '菜单管理', '/admin/menuList', '5', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('64', '200', '角色菜单', '/admin/roleList', '8', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('65', '0', '资讯管理  ', '/admin/index', '7', '/', null, null, null, '1', null, null, null, null, null, '2017-02-23 11:14:04');
+INSERT INTO `t_menu` VALUES ('66', '65', '资讯科普', '/admin/news', '1', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('67', '0', '健康小屋  ', '/admin/index', '9', '/', null, null, null, '1', null, null, null, null, null, '2017-02-23 11:14:43');
+INSERT INTO `t_menu` VALUES ('68', '67', '健康小屋管理', '/admin/hutManager', '1', '/', null, null, null, '1', null, null, null, null, null, '2017-02-23 11:16:17');
+INSERT INTO `t_menu` VALUES ('69', '67', '客户检测记录', '/admin/cusCheck', '2', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('70', '67', '设备使用记录', '/admin/equReports', '3', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('71', '0', '园区管理', '/admin/index', '1', '/', null, null, null, '1', null, null, null, null, null, '2017-02-27 15:36:50');
+INSERT INTO `t_menu` VALUES ('72', '71', '园区视图', '/admin/gardenView', '1', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('73', '71', '住户管理', '/admin/residentManager', '2', '/', null, null, null, '1', null, null, null, null, null, null);
+INSERT INTO `t_menu` VALUES ('86', '0', '客服聊天', 'http://ocean.hzpaiding.com/green/adminChat/index', '13', '/', null, null, null, '1', 'dhhua', '1', null, null, '2017-02-28 10:00:10', '2017-02-28 15:55:48');
+INSERT INTO `t_menu` VALUES ('87', '71', '数据统计', '/admin/gardenManage/dataStatistics', '4', 'http://', null, null, null, '1', 'dhhua', '1', null, null, '2017-06-29 17:52:38', null);
+INSERT INTO `t_menu` VALUES ('88', '65', '微信评论审核', '/admin/news/chatNew', '2', 'http://', null, null, null, '1', 'dhhua', '1', null, null, '2017-06-29 18:21:28', '2017-06-29 18:53:05');
+
+-- ----------------------------
+-- Table structure for t_menu_role
+-- ----------------------------
+DROP TABLE IF EXISTS `t_menu_role`;
+CREATE TABLE `t_menu_role` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ROLE_ID` int(11) NOT NULL,
+  `MENU_ID` int(11) NOT NULL,
+  `STATE` int(11) DEFAULT NULL,
+  `CREATER` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `CREATER_ID` bigint(11) DEFAULT NULL,
+  `OPERATOR` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  `OPERATOR_ID` bigint(11) DEFAULT NULL,
+  `CREATE_TIME` datetime DEFAULT NULL,
+  `UPDATE_TIME` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='菜单角色表';
+
+-- ----------------------------
+-- Records of t_menu_role
+-- ----------------------------
+INSERT INTO `t_menu_role` VALUES ('1', '1', '1', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('2', '1', '2', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('3', '1', '3', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('4', '1', '4', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('5', '1', '5', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('6', '1', '6', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('7', '1', '7', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('8', '1', '8', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('9', '1', '9', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('10', '1', '10', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('11', '1', '11', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('12', '1', '12', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('13', '1', '13', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('14', '1', '14', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('16', '1', '16', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('17', '1', '17', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('18', '1', '18', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('19', '1', '19', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('20', '1', '20', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('21', '1', '21', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('22', '1', '220', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('23', '1', '23', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('24', '1', '24', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('25', '1', '25', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('26', '1', '26', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('27', '1', '27', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('28', '1', '28', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('29', '1', '29', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('30', '1', '30', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('31', '1', '31', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('32', '1', '32', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('33', '1', '33', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('34', '1', '34', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('35', '1', '35', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('36', '1', '36', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('37', '1', '37', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('38', '1', '38', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('39', '1', '39', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('40', '1', '40', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('41', '1', '41', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('42', '1', '42', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('43', '1', '43', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('44', '1', '44', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('45', '1', '45', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('46', '1', '46', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('51', '1', '580', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('52', '1', '590', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('53', '1', '600', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('54', '1', '61', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('55', '1', '640', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('56', '1', '65', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('57', '1', '66', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('58', '1', '67', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('59', '1', '68', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('60', '1', '69', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('61', '1', '70', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('62', '1', '71', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('63', '1', '72', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('64', '1', '73', '1', null, null, null, null, null, null);
+INSERT INTO `t_menu_role` VALUES ('71', '1', '86', '1', 'dhhua', '1', null, null, null, '2017-02-28 10:00:10');
+INSERT INTO `t_menu_role` VALUES ('72', '1', '87', '1', 'dhhua', '1', null, null, null, '2017-06-29 17:52:39');
+INSERT INTO `t_menu_role` VALUES ('73', '1', '88', '1', 'dhhua', '1', null, null, null, '2017-06-29 18:21:29');
 
 -- ----------------------------
 -- Table structure for t_offer
@@ -279,6 +454,36 @@ INSERT INTO `t_question_copy` VALUES ('36', '{id: \"35\", question: \"What was t
 INSERT INTO `t_question_copy` VALUES ('37', '{id: \"36\", question: \"What is the name of your favorite sports team?\", number: 3}', '1', '2017-10-09 15:49:24');
 
 -- ----------------------------
+-- Table structure for t_role
+-- ----------------------------
+DROP TABLE IF EXISTS `t_role`;
+CREATE TABLE `t_role` (
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(64) COLLATE utf8_bin NOT NULL,
+  `SN` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  `GROUP_ID` bigint(20) NOT NULL,
+  `GROUP_NAME` varchar(64) COLLATE utf8_bin NOT NULL,
+  `STATE` int(11) NOT NULL,
+  `CREATER` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `CREATER_ID` bigint(11) DEFAULT NULL,
+  `OPERATOR` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  `OPERATOR_ID` bigint(11) DEFAULT NULL,
+  `CREATE_TIME` datetime DEFAULT NULL,
+  `UPDATE_TIME` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `NAME` (`NAME`,`SN`,`GROUP_ID`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='角色表';
+
+-- ----------------------------
+-- Records of t_role
+-- ----------------------------
+INSERT INTO `t_role` VALUES ('1', '超级管理员', null, '1', '超级管理员组', '1', '董航华', '1', '董航华', '1', null, '2017-01-11 18:51:42');
+INSERT INTO `t_role` VALUES ('22', '小丫', null, '12', '客服组', '1', '董航华', '1', null, null, '2017-01-23 18:23:46', null);
+INSERT INTO `t_role` VALUES ('23', '小欣', null, '12', '客服组', '1', '董航华', '1', null, null, '2017-01-23 18:24:01', null);
+INSERT INTO `t_role` VALUES ('26', '小紫', null, '22', '售后组', '1', 'dhhua', '1', null, null, '2017-03-13 16:14:24', null);
+INSERT INTO `t_role` VALUES ('27', '大强', null, '22', '售后组', '1', null, null, 'dhhua', '1', null, '2017-03-13 16:28:44');
+
+-- ----------------------------
 -- Table structure for t_settlement
 -- ----------------------------
 DROP TABLE IF EXISTS `t_settlement`;
@@ -308,11 +513,9 @@ CREATE TABLE `t_sys_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(45) DEFAULT NULL,
   `password` varchar(45) DEFAULT NULL,
-  `salt` varchar(45) DEFAULT NULL,
   `name` varchar(45) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
   `mobile` varchar(45) DEFAULT NULL,
-  `role_id` int(11) DEFAULT NULL COMMENT '0管理员  1充值人员 2主管 3财务',
   `status` int(11) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
   `modify_time` datetime DEFAULT NULL,
@@ -323,16 +526,16 @@ CREATE TABLE `t_sys_user` (
 -- ----------------------------
 -- Records of t_sys_user
 -- ----------------------------
-INSERT INTO `t_sys_user` VALUES ('1', 'super', '5844591dff62349ce65f98c60baa669e', 'e8z0i', '超级管理员', null, null, '2', '1', '2017-09-04 10:35:19', null);
-INSERT INTO `t_sys_user` VALUES ('2', 'admin', '439b9b33eb18d644f3b57e182f45b86a', 'bycca', '管理员', null, null, '0', '1', '2017-09-04 10:35:19', null);
-INSERT INTO `t_sys_user` VALUES ('3', 'huangqf', 'ec642c18c8ef5665d05369621c888346', '3tqob', 'huangqf', '', null, '1', '0', '2017-09-01 10:42:43', '2017-09-06 14:19:25');
-INSERT INTO `t_sys_user` VALUES ('4', '33', '5d66e6a326f7dfef80dea553d83736ca', 'k27z4', 'dsds', '2564@q564', '1356562323', '1', '1', '2017-09-01 10:54:50', null);
-INSERT INTO `t_sys_user` VALUES ('5', 'hhhh', '52c95cde0a57bd0567dde04a877eeb0a', '18g4s', '舒适的飞机', '', '', '1', '1', '2017-09-01 18:48:32', null);
-INSERT INTO `t_sys_user` VALUES ('6', '14', 'e9a7a843fd23a2c0df64e0cd03ad55b8', 'enb9c', '22221', '2', '2', '1', '1', '2017-09-04 14:00:31', '2017-09-04 14:46:15');
-INSERT INTO `t_sys_user` VALUES ('7', 'huang111', 'ec642c18c8ef5665d05369621c888346', '0279o', '黄乔飞', '', '', '1', '1', '2017-09-04 14:03:28', '2017-09-06 15:43:21');
-INSERT INTO `t_sys_user` VALUES ('8', 'machine', 'ae707272191b193f3535f4dd6cda006b', 'k5li6', 'machine', '', '', '1', '1', '2017-09-07 18:04:26', null);
-INSERT INTO `t_sys_user` VALUES ('9', 'boss', '5844591dff62349ce65f98c60baa669e', 'e8z0i', '老板', null, '12345678912', '2', null, '2017-10-11 09:30:07', null);
-INSERT INTO `t_sys_user` VALUES ('10', 'Finance', '5844591dff62349ce65f98c60baa669e', 'e8z0i', '财务', null, '12345678900', '3', null, '2017-10-11 09:31:11', null);
+INSERT INTO `t_sys_user` VALUES ('1', 'super', 'a294763bc6d9c0d6d8b57a3585579410', '超级管理员', null, null, '1', '2017-09-04 10:35:19', null);
+INSERT INTO `t_sys_user` VALUES ('2', 'admin', '439b9b33eb18d644f3b57e182f45b86a', '管理员', null, null, '1', '2017-09-04 10:35:19', null);
+INSERT INTO `t_sys_user` VALUES ('3', 'huangqf', 'ec642c18c8ef5665d05369621c888346', 'huangqf', '', null, '0', '2017-09-01 10:42:43', '2017-09-06 14:19:25');
+INSERT INTO `t_sys_user` VALUES ('4', '33', '5d66e6a326f7dfef80dea553d83736ca', 'dsds', '2564@q564', '1356562323', '1', '2017-09-01 10:54:50', null);
+INSERT INTO `t_sys_user` VALUES ('5', 'hhhh', '52c95cde0a57bd0567dde04a877eeb0a', '舒适的飞机', '', '', '1', '2017-09-01 18:48:32', null);
+INSERT INTO `t_sys_user` VALUES ('6', '14', 'e9a7a843fd23a2c0df64e0cd03ad55b8', '22221', '2', '2', '1', '2017-09-04 14:00:31', '2017-09-04 14:46:15');
+INSERT INTO `t_sys_user` VALUES ('7', 'huang111', 'ec642c18c8ef5665d05369621c888346', '黄乔飞', '', '', '1', '2017-09-04 14:03:28', '2017-09-06 15:43:21');
+INSERT INTO `t_sys_user` VALUES ('8', 'machine', 'ae707272191b193f3535f4dd6cda006b', 'machine', '', '', '1', '2017-09-07 18:04:26', null);
+INSERT INTO `t_sys_user` VALUES ('9', 'boss', '5844591dff62349ce65f98c60baa669e', '老板', null, '12345678912', null, '2017-10-11 09:30:07', null);
+INSERT INTO `t_sys_user` VALUES ('10', 'Finance', '5844591dff62349ce65f98c60baa669e', '财务', null, '12345678900', null, '2017-10-11 09:31:11', null);
 
 -- ----------------------------
 -- Table structure for t_task
@@ -362,48 +565,6 @@ CREATE TABLE `t_task` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for t_user
--- ----------------------------
-DROP TABLE IF EXISTS `t_user`;
-CREATE TABLE `t_user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uid` int(11) NOT NULL COMMENT '用户id',
-  `token` varchar(64) CHARACTER SET utf8 DEFAULT NULL,
-  `status` int(11) DEFAULT '0' COMMENT '0未开通，1开通, 2 状态锁定',
-  `modify_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '0：自注册用户，1：qq，2：微信',
-  PRIMARY KEY (`id`),
-  KEY `create_time` (`create_time`),
-  KEY `uid` (`uid`),
-  KEY `token` (`token`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COMMENT='用户表';
-
--- ----------------------------
--- Records of t_user
--- ----------------------------
-INSERT INTO `t_user` VALUES ('24', '100018', '7d07686c63eaf368be830ab2b5d04fbd788d30f9a83d874953598bd06d3a08a0', '1', '2017-10-20 09:34:21', '2017-10-19 09:27:00');
-INSERT INTO `t_user` VALUES ('25', '100019', '6f2cf98655bdf29050a0660adca15ebd788d30f9a83d874953598bd06d3a08a0', '1', '2017-10-19 09:31:01', '2017-10-19 09:29:02');
-INSERT INTO `t_user` VALUES ('26', '100020', '6f2cf98655bdf29050a0660adca15ebd788d30f9a83d874953598bd06d3a08a0', '1', null, '2017-10-24 09:19:38');
-INSERT INTO `t_user` VALUES ('27', '100021', '6f2cf98655bdf29050a0660adca15ebd788d30f9a83d874953598bd06d3a08a0', '1', null, '2017-10-24 09:19:38');
-INSERT INTO `t_user` VALUES ('28', '100022', '6f2cf98655bdf29050a0660adca15ebd788d30f9a83d874953598bd06d3a08a0', '1', null, '2017-10-24 09:19:38');
-INSERT INTO `t_user` VALUES ('29', '100023', '6f2cf98655bdf29050a0660adca15ebd788d30f9a83d874953598bd06d3a08a0', '1', null, '2017-10-24 09:19:38');
-INSERT INTO `t_user` VALUES ('30', '100024', '6f2cf98655bdf29050a0660adca15ebd788d30f9a83d874953598bd06d3a08a0', '1', null, '2017-10-24 09:19:38');
-INSERT INTO `t_user` VALUES ('31', '100025', '6f2cf98655bdf29050a0660adca15ebd788d30f9a83d874953598bd06d3a08a0', '1', null, '2017-10-24 09:19:38');
-INSERT INTO `t_user` VALUES ('32', '100026', '6f2cf98655bdf29050a0660adca15ebd788d30f9a83d874953598bd06d3a08a0', '1', null, '2017-10-24 09:19:38');
-INSERT INTO `t_user` VALUES ('33', '100027', '6f2cf98655bdf29050a0660adca15ebd788d30f9a83d874953598bd06d3a08a0', '1', null, '2017-10-24 09:19:38');
-INSERT INTO `t_user` VALUES ('34', '100028', '6f2cf98655bdf29050a0660adca15ebd788d30f9a83d874953598bd06d3a08a0', '1', null, '2017-10-24 09:19:38');
-INSERT INTO `t_user` VALUES ('35', '100029', '6f2cf98655bdf29050a0660adca15ebd788d30f9a83d874953598bd06d3a08a0', null, '2017-10-24 09:21:15', '2017-10-24 09:19:38');
-INSERT INTO `t_user` VALUES ('36', '100030', '6f2cf98655bdf29050a0660adca15ebd788d30f9a83d874953598bd06d3a08a0', null, '2017-10-24 09:21:15', '2017-10-24 09:19:38');
-INSERT INTO `t_user` VALUES ('37', '100031', '6f2cf98655bdf29050a0660adca15ebd788d30f9a83d874953598bd06d3a08a0', '0', '2017-10-24 09:21:15', '2017-10-24 09:19:38');
-INSERT INTO `t_user` VALUES ('38', '100032', '6f2cf98655bdf29050a0660adca15ebd788d30f9a83d874953598bd06d3a08a0', '0', '2017-10-24 09:21:15', '2017-10-24 09:19:38');
-INSERT INTO `t_user` VALUES ('39', '100033', '6f2cf98655bdf29050a0660adca15ebd788d30f9a83d874953598bd06d3a08a0', '0', '2017-10-24 09:21:15', '2017-10-24 09:19:38');
-INSERT INTO `t_user` VALUES ('40', '100034', '6f2cf98655bdf29050a0660adca15ebd788d30f9a83d874953598bd06d3a08a0', '0', '2017-10-24 09:21:15', '2017-10-24 09:19:38');
-INSERT INTO `t_user` VALUES ('41', '100035', '6f2cf98655bdf29050a0660adca15ebd788d30f9a83d874953598bd06d3a08a0', '0', '2017-10-24 09:21:15', '2017-10-24 09:19:38');
-INSERT INTO `t_user` VALUES ('42', '100036', '6f2cf98655bdf29050a0660adca15ebd788d30f9a83d874953598bd06d3a08a0', '0', '2017-10-24 09:21:15', '2017-10-24 09:19:38');
-INSERT INTO `t_user` VALUES ('43', '100037', '6f2cf98655bdf29050a0660adca15ebd788d30f9a83d874953598bd06d3a08a0', '0', '2017-10-24 09:21:15', '2017-10-24 09:19:38');
-INSERT INTO `t_user` VALUES ('44', '100039', '6f2cf98655bdf29050a0660adca15ebd788d30f9a83d874953598bd06d3a08a0', '0', '2017-10-24 09:21:15', '2017-10-24 09:19:38');
-
--- ----------------------------
 -- Table structure for t_user_bill
 -- ----------------------------
 DROP TABLE IF EXISTS `t_user_bill`;
@@ -422,3 +583,21 @@ CREATE TABLE `t_user_bill` (
 -- ----------------------------
 -- Records of t_user_bill
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_user_role
+-- ----------------------------
+DROP TABLE IF EXISTS `t_user_role`;
+CREATE TABLE `t_user_role` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `role_id` int(11) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_user_role
+-- ----------------------------
+INSERT INTO `t_user_role` VALUES ('1', '1', '1', '2017-10-26 10:47:01', null);
