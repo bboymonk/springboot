@@ -161,4 +161,10 @@
       modify_time = #{modifyTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="login" parameterType="hashMap" resultType="com.wjb.model.User">
+    SELECT * from t_sys_user WHERE username=#{username} AND password=#{password}
+  </select>
+
+
 </mapper>

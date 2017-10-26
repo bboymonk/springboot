@@ -124,7 +124,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 .global-loading {
     position: absolute;
-    background-image: url("../../images/icons/icon-timing.gif");
+    background-image: url("../../img/icons/icon-timing.gif");
     width: 64px;
     height: 64px;
     background-repeat: no-repeat;
@@ -616,7 +616,7 @@ h1, h2, h3, h4, h5, h6, p {
     height: 24px;
     background-repeat: no-repeat;
     background-size: contain;
-    background-image: url("../../images/icons/icon-close.png")
+    background-image: url("../../img/icons/icon-close.png")
 }
 
 .dialog .close:hover {
@@ -922,19 +922,19 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 #dialog-login .social-login .wrapper .item:first-of-type .icon {
-    background-image: url("../../images/icons/icon-login-weibo.png")
+    background-image: url("../../img/icons/icon-login-weibo.png")
 }
 
 #dialog-login .social-login .wrapper .item:first-of-type .icon:hover {
-    background-image: url("../../images/icons/icon-login-weibo-active.png")
+    background-image: url("../../img/icons/icon-login-weibo-active.png")
 }
 
 #dialog-login .social-login .wrapper .item:nth-of-type(2) .icon {
-    background-image: url("../../images/icons/icon-login-wechat.png")
+    background-image: url("../../img/icons/icon-login-wechat.png")
 }
 
 #dialog-login .social-login .wrapper .item:nth-of-type(2) .icon:hover {
-    background-image: url("../../images/icons/icon-login-wechat-active.png")
+    background-image: url("../../img/icons/icon-login-wechat-active.png")
 }
 
 #dialog-login .social-login .wrapper.hide-weibo .item {
@@ -1027,7 +1027,7 @@ h1, h2, h3, h4, h5, h6, p {
     background-repeat: no-repeat;
     background-size: cover;
     background-color: #EEE;
-    background-image: url("../../images/icons/icon-camera.png")
+    background-image: url("../../img/icons/icon-camera.png")
 }
 
 #dialog-profile .content .avatar .choose {
@@ -1134,14 +1134,14 @@ h1, h2, h3, h4, h5, h6, p {
     height: 32px;
     background-repeat: no-repeat;
     background-size: contain;
-    background-image: url("../../images/icons/icon-close.png");
+    background-image: url("../../img/icons/icon-close.png");
     z-index: 1101;
     -webkit-transition: all .3s ease-out;
     transition: all .3s ease-out
 }
 
 #dialog-image-preview-wrapper .close:hover {
-    background-image: url("../../images/icons/icon-close-active.png")
+    background-image: url("../../img/icons/icon-close-active.png")
 }
 
 @media (max-width: 768px) {
@@ -1175,7 +1175,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 #dialog-image-preview-wrapper .btn-prev {
     left: 20px;
-    background-image: url("../../images/icons/icon-swiper-left.png");
+    background-image: url("../../img/icons/icon-swiper-left.png");
     background-position: 40% 50%
 }
 
@@ -1187,7 +1187,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 #dialog-image-preview-wrapper .btn-next {
     right: 20px;
-    background-image: url("../../images/icons/icon-swiper-right.png");
+    background-image: url("../../img/icons/icon-swiper-right.png");
     background-position: 60% 50%
 }
 
@@ -1431,19 +1431,19 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 #mf-drawer .links ul li.link-downloadapp::after {
-    background-image: url("../../images/icons/icon-arrow-right.png")
+    background-image: url("../../img/icons/icon-arrow-right.png")
 }
 
 #mf-drawer .links ul li.link-downloadapp:hover::after {
-    background-image: url("../../images/icons/icon-arrow-right-active.png")
+    background-image: url("../../img/icons/icon-arrow-right-active.png")
 }
 
 #mf-drawer .links ul li.link-wechat::after {
-    background-image: url("../../images/icons/icon-share-wechat-dark.png")
+    background-image: url("../../img/icons/icon-share-wechat-dark.png")
 }
 
 #mf-drawer .links ul li.link-wechat:hover::after {
-    background-image: url("../../images/icons/icon-share-wechat-dark-active.png")
+    background-image: url("../../img/icons/icon-share-wechat-dark-active.png")
 }
 
 #mf-drawer .links ul li.link-weibo {
@@ -1451,11 +1451,11 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 #mf-drawer .links ul li.link-weibo::after {
-    background-image: url("../../images/icons/icon-share-weibo-dark.png")
+    background-image: url("../../img/icons/icon-share-weibo-dark.png")
 }
 
 #mf-drawer .links ul li.link-weibo:hover::after {
-    background-image: url("../../images/icons/icon-share-weibo-dark-active.png")
+    background-image: url("../../img/icons/icon-share-weibo-dark-active.png")
 }
 
 #mf-drawer .links ul li a {
@@ -1667,7 +1667,7 @@ h1, h2, h3, h4, h5, h6, p {
     height: 16px;
     background-repeat: no-repeat;
     background-size: contain;
-    background-image: url("../../images/icons/icon-earth.png")
+    background-image: url("../../img/icons/icon-earth.png")
 }
 
 #mf-header {
@@ -2124,51 +2124,51 @@ h1, h2, h3, h4, h5, h6, p {
 
 .icon.icon-collect::before {
     top: -2px;
-    background-image: url("../../images/icons/icon-collect.svg")
+    background-image: url("../../img/icons/icon-collect.svg")
 }
 
 .icon.icon-collect.active::before {
-    background-image: url("../../images/icons/icon-collect-active.svg")
+    background-image: url("../../img/icons/icon-collect-active.svg")
 }
 
 .icon.icon-collect:hover::before {
-    background-image: url("../../images/icons/icon-collect-active.svg")
+    background-image: url("../../img/icons/icon-collect-active.svg")
 }
 
 .icon.icon-like::before {
     top: -4px;
-    background-image: url("../../images/icons/icon-like.svg")
+    background-image: url("../../img/icons/icon-like.svg")
 }
 
 .icon.icon-like.active::before {
-    background-image: url("../../images/icons/icon-like-active.svg")
+    background-image: url("../../img/icons/icon-like-active.svg")
 }
 
 .icon.icon-like:hover::before {
-    background-image: url("../../images/icons/icon-like-active.svg")
+    background-image: url("../../img/icons/icon-like-active.svg")
 }
 
 .icon.icon-hate::before {
     top: 0;
-    background-image: url("../../images/icons/icon-hate.svg")
+    background-image: url("../../img/icons/icon-hate.svg")
 }
 
 .icon.icon-hate.active::before {
-    background-image: url("../../images/icons/icon-hate-active.svg")
+    background-image: url("../../img/icons/icon-hate-active.svg")
 }
 
 .icon.icon-hate:hover::before {
-    background-image: url("../../images/icons/icon-hate-active.svg")
+    background-image: url("../../img/icons/icon-hate-active.svg")
 }
 
 .icon.icon-like-disabled::before {
     top: -3px;
-    background-image: url("../../images/icons/icon-like-disabled.png")
+    background-image: url("../../img/icons/icon-like-disabled.png")
 }
 
 .icon.icon-hate-disabled::before {
     top: 1px;
-    background-image: url("../../images/icons/icon-hate-disabled.png")
+    background-image: url("../../img/icons/icon-hate-disabled.png")
 }
 
 .tag {
@@ -2600,7 +2600,7 @@ h1, h2, h3, h4, h5, h6, p {
     -webkit-transition: height, width 1s, .3s ease-out;
     transition: height, width 1s, .3s ease-out;
     background-color: #000;
-    background-image: url("../../images/propaganda-bg.jpg");
+    background-image: url("../../img/propaganda-bg.jpg");
     background-size: cover;
     z-index: 110
 }
@@ -2631,14 +2631,14 @@ h1, h2, h3, h4, h5, h6, p {
     background-size: 75%;
     background-position: 50% 50%;
     background-color: #333;
-    background-image: url("../../images/icons/icon-close.png");
+    background-image: url("../../img/icons/icon-close.png");
     padding: 20px;
     font-size: 20px
 }
 
 #propaganda-top .close:hover {
     cursor: pointer;
-    background-image: url("../../images/icons/icon-close-active.png")
+    background-image: url("../../img/icons/icon-close-active.png")
 }
 
 #propaganda-top.open {

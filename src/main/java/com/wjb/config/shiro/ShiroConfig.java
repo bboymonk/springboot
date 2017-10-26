@@ -60,8 +60,8 @@ public class ShiroConfig {
     public ShiroFilterFactoryBean shiroFilter(){
         ShiroFilterFactoryBean bean = new ShiroFilterFactoryBean();
         bean.setSecurityManager(securityManager());
-        bean.setLoginUrl("/admin/toLogin");
-        bean.setSuccessUrl("/admin/index");
+        bean.setLoginUrl("/admin/login");
+        bean.setSuccessUrl("/admin/welcome");
         bean.setUnauthorizedUrl("/error");
 
         Map<String, Filter> filters = new HashMap();
@@ -73,11 +73,9 @@ public class ShiroConfig {
         chains.put("/font/**","anon");
         chains.put("/img/**","anon");
         chains.put("/js/**","anon");
-        chains.put("/css/**","anon");
         chains.put("/**/login", "anon");
         chains.put("/**/toLogin","anon");
         chains.put("/**/logout", "logout");
-//        chains.put("/**","anon");
         chains.put("/**","authc");
         bean.setFilterChainDefinitionMap(chains);
         System.out.println("Shiro拦截器工厂类注入成功");

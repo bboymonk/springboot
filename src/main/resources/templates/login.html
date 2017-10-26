@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/css/login/style.css" rel='stylesheet' type='text/css' />
+    <script src="/js/angular.min.js"></script>
+</head>
+<body ng-app="indexApp" ng-controller="indexCtrl">
+
+<h1>Welcome</h1>
+<div class="login-form">
+    <div class="close"> </div>
+    <div class="head-info">
+        <label class="lbl-1"> </label>
+        <label class="lbl-2"> </label>
+        <label class="lbl-3"> </label>
+    </div>
+    <div class="clear"> </div>
+    <div class="avtar">
+        <img src="/img/login/avtar.png" />
+    </div>
+    <form>
+        <input type="text" class="text" placeholder="Username" ng-model="username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}" >
+        <div class="key">
+            <input type="password" placeholder="Password" ng-model="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+        </div>
+        <div ng-click="submit()" class="signin">
+            <input type="submit" value="Login" >
+        </div>
+    </form>
+</div>
+<script>
+    angular.module('indexApp',[]).controller('indexCtrl',function ($scope,$http) {
+
+        $scope.submit=function () {
+            $http({
+                method  : 'POST',
+                url     : '/admin/toLogin',
+                params    : {
+                    username:$scope.username,
+                    password:$scope.password
+                }
+            }).then(function successCallback(response) {
+                if(response.data.DATA == "登录成功"){
+                    window.location.href="/admin/index";
+                }else{
+                    window.location.href="/admin/login";
+                }
+            });
+        }
+
+
+
+
+    })
+</script>
+
+</body>
+</html>

@@ -1,9 +1,9 @@
 package com.wjb.config.shiro;
 
-import com.wjb.model.Permission;
+import com.wjb.model.Menu;
 import com.wjb.model.Role;
 import com.wjb.model.User;
-import com.wjb.service.PermissionService;
+import com.wjb.service.MenuService;
 import com.wjb.service.RoleService;
 import com.wjb.service.UserService;
 import org.apache.shiro.authc.AuthenticationException;
@@ -29,7 +29,7 @@ public class CustomShiroRealm extends AuthorizingRealm {
     @Autowired
     private RoleService roleService;
     @Autowired
-    private PermissionService permissionService;
+    private MenuService menuService;
     @Autowired
     private UserService userService;
     /**
@@ -45,16 +45,15 @@ public class CustomShiroRealm extends AuthorizingRealm {
         Set<String> roles = new HashSet<String>();
         for(Role role:roleList){
             roles.add(role.getName());
-            List<Permission> list = permissionService.permissionList(role.getId());
-            for (Permission permission:list){
-                permissions.add(permission.getPermissionname());
+            List<Menu> menus = menuService.getUrl(role.getId());
+            for (Menu m:menus){
+                permissions.add(m.getMapping());
             }
         }
-
-        SimpleAuthorizationInfo simpleAuthenticationInfo = new SimpleAuthorizationInfo();
-        simpleAuthenticationInfo.setRoles(roles);
-        simpleAuthenticationInfo.setStringPermissions(permissions);
-        return simpleAuthenticationInfo;
+        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
+        info.setRoles(roles);
+        info.setStringPermissions(permissions);
+        return info;
     }
 
     /**

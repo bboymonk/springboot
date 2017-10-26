@@ -1,17 +1,14 @@
 package com.wjb.mapper;
 
+import com.wjb.base.BaseMapper;
 import com.wjb.model.User;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+@Mapper
+public interface UserMapper extends BaseMapper<User,Long>{
 
-public interface UserMapper {
-    int deleteByPrimaryKey(Integer id);
+    User login(@Param("username")String username,@Param("password")String password);
 
-    int insert(User record);
 
-    int insertSelective(User record);
 
-    User selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(User record);
-
-    int updateByPrimaryKey(User record);
 }

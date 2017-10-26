@@ -1,8 +1,9 @@
 package com.wjb.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class User {
+public class User implements Serializable{
     private Integer id;
 
     private String username;
@@ -16,8 +17,6 @@ public class User {
     private String email;
 
     private String mobile;
-
-    private Integer roleId;
 
     private Integer status;
 
@@ -79,14 +78,6 @@ public class User {
 
     public void setMobile(String mobile) {
         this.mobile = mobile == null ? null : mobile.trim();
-    }
-
-    public Integer getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(Integer roleId) {
-        this.roleId = roleId;
     }
 
     public Integer getStatus() {

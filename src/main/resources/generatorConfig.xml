@@ -43,12 +43,14 @@
         </javaClientGenerator>
 
         <!--对哪张表做操作   domainObjectName的意思是把数据的表名指定成Customer，不然生成的对象名前面会有前缀-->
-        <table tableName="t_sys_user" domainObjectName="User" enableCountByExample="false" enableDeleteByExample="false"
+        <table tableName="t_menu" domainObjectName="Menu" enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false"/>
-        <!--<table tableName="t_offer" domainObjectName="Offer" enableCountByExample="false" enableDeleteByExample="false"-->
-               <!--enableSelectByExample="false" enableUpdateByExample="false"/>-->
-        <!--<table tableName="t_user" domainObjectName="User" enableCountByExample="false" enableDeleteByExample="false"-->
-               <!--enableSelectByExample="false" enableUpdateByExample="false"/>-->
+        <table tableName="t_menu_role" domainObjectName="MenuRole" enableCountByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false"/>
+        <table tableName="t_role" domainObjectName="Role" enableCountByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false"/>
+        <table tableName="t_user_role" domainObjectName="UserRole" enableCountByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false"/>
 
     </context>
 </generatorConfiguration>

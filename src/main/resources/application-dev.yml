@@ -1,5 +1,5 @@
 server:
-    port: 8080
+    port: 80
 spring:
 #==================================================数据库配置========================================#
   datasource:
@@ -44,3 +44,15 @@ spring:
 mybatis:
   config-location: classpath:/mybatis-config.xml
   mapper-locations: classpath:mapper/*.xml
+#==================================================redis配置========================================#
+redis:
+    database: 0
+    host: 120.25.176.86
+    port: 6379
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+    timeout: 0
+    password: go2hell

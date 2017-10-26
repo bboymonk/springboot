@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wjb.mapper.MenuMapper" >
+  <resultMap id="BaseResultMap" type="com.wjb.model.Menu" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="PARENT_ID" property="parentId" jdbcType="INTEGER" />
+    <result column="MENU_NM" property="menuNm" jdbcType="VARCHAR" />
+    <result column="MAPPING" property="mapping" jdbcType="VARCHAR" />
+    <result column="RANK_SORT" property="rankSort" jdbcType="BIGINT" />
+    <result column="PICTURE_URL" property="pictureUrl" jdbcType="VARCHAR" />
+    <result column="DISP_INDEX" property="dispIndex" jdbcType="INTEGER" />
+    <result column="DISP_KBN" property="dispKbn" jdbcType="VARCHAR" />
+    <result column="REMARKS" property="remarks" jdbcType="VARCHAR" />
+    <result column="STATE" property="state" jdbcType="INTEGER" />
+    <result column="CREATER" property="creater" jdbcType="VARCHAR" />
+    <result column="CREATER_ID" property="createrId" jdbcType="BIGINT" />
+    <result column="OPERATOR" property="operator" jdbcType="VARCHAR" />
+    <result column="OPERATOR_ID" property="operatorId" jdbcType="BIGINT" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, PARENT_ID, MENU_NM, MAPPING, RANK_SORT, PICTURE_URL, DISP_INDEX, DISP_KBN, REMARKS, 
+    STATE, CREATER, CREATER_ID, OPERATOR, OPERATOR_ID, CREATE_TIME, UPDATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_menu
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_menu
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wjb.model.Menu" >
+    insert into t_menu (ID, PARENT_ID, MENU_NM, 
+      MAPPING, RANK_SORT, PICTURE_URL, 
+      DISP_INDEX, DISP_KBN, REMARKS, 
+      STATE, CREATER, CREATER_ID, 
+      OPERATOR, OPERATOR_ID, CREATE_TIME, 
+      UPDATE_TIME)
+    values (#{id,jdbcType=INTEGER}, #{parentId,jdbcType=INTEGER}, #{menuNm,jdbcType=VARCHAR}, 
+      #{mapping,jdbcType=VARCHAR}, #{rankSort,jdbcType=BIGINT}, #{pictureUrl,jdbcType=VARCHAR}, 
+      #{dispIndex,jdbcType=INTEGER}, #{dispKbn,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, 
+      #{state,jdbcType=INTEGER}, #{creater,jdbcType=VARCHAR}, #{createrId,jdbcType=BIGINT}, 
+      #{operator,jdbcType=VARCHAR}, #{operatorId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wjb.model.Menu" >
+    insert into t_menu
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="parentId != null" >
+        PARENT_ID,
+      </if>
+      <if test="menuNm != null" >
+        MENU_NM,
+      </if>
+      <if test="mapping != null" >
+        MAPPING,
+      </if>
+      <if test="rankSort != null" >
+        RANK_SORT,
+      </if>
+      <if test="pictureUrl != null" >
+        PICTURE_URL,
+      </if>
+      <if test="dispIndex != null" >
+        DISP_INDEX,
+      </if>
+      <if test="dispKbn != null" >
+        DISP_KBN,
+      </if>
+      <if test="remarks != null" >
+        REMARKS,
+      </if>
+      <if test="state != null" >
+        STATE,
+      </if>
+      <if test="creater != null" >
+        CREATER,
+      </if>
+      <if test="createrId != null" >
+        CREATER_ID,
+      </if>
+      <if test="operator != null" >
+        OPERATOR,
+      </if>
+      <if test="operatorId != null" >
+        OPERATOR_ID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="menuNm != null" >
+        #{menuNm,jdbcType=VARCHAR},
+      </if>
+      <if test="mapping != null" >
+        #{mapping,jdbcType=VARCHAR},
+      </if>
+      <if test="rankSort != null" >
+        #{rankSort,jdbcType=BIGINT},
+      </if>
+      <if test="pictureUrl != null" >
+        #{pictureUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="dispIndex != null" >
+        #{dispIndex,jdbcType=INTEGER},
+      </if>
+      <if test="dispKbn != null" >
+        #{dispKbn,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="creater != null" >
+        #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null" >
+        #{createrId,jdbcType=BIGINT},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorId != null" >
+        #{operatorId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wjb.model.Menu" >
+    update t_menu
+    <set >
+      <if test="parentId != null" >
+        PARENT_ID = #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="menuNm != null" >
+        MENU_NM = #{menuNm,jdbcType=VARCHAR},
+      </if>
+      <if test="mapping != null" >
+        MAPPING = #{mapping,jdbcType=VARCHAR},
+      </if>
+      <if test="rankSort != null" >
+        RANK_SORT = #{rankSort,jdbcType=BIGINT},
+      </if>
+      <if test="pictureUrl != null" >
+        PICTURE_URL = #{pictureUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="dispIndex != null" >
+        DISP_INDEX = #{dispIndex,jdbcType=INTEGER},
+      </if>
+      <if test="dispKbn != null" >
+        DISP_KBN = #{dispKbn,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        REMARKS = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        STATE = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="creater != null" >
+        CREATER = #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null" >
+        CREATER_ID = #{createrId,jdbcType=BIGINT},
+      </if>
+      <if test="operator != null" >
+        OPERATOR = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorId != null" >
+        OPERATOR_ID = #{operatorId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wjb.model.Menu" >
+    update t_menu
+    set PARENT_ID = #{parentId,jdbcType=INTEGER},
+      MENU_NM = #{menuNm,jdbcType=VARCHAR},
+      MAPPING = #{mapping,jdbcType=VARCHAR},
+      RANK_SORT = #{rankSort,jdbcType=BIGINT},
+      PICTURE_URL = #{pictureUrl,jdbcType=VARCHAR},
+      DISP_INDEX = #{dispIndex,jdbcType=INTEGER},
+      DISP_KBN = #{dispKbn,jdbcType=VARCHAR},
+      REMARKS = #{remarks,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=INTEGER},
+      CREATER = #{creater,jdbcType=VARCHAR},
+      CREATER_ID = #{createrId,jdbcType=BIGINT},
+      OPERATOR = #{operator,jdbcType=VARCHAR},
+      OPERATOR_ID = #{operatorId,jdbcType=BIGINT},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="getUrl" parameterType="java.lang.Long" resultType="com.wjb.model.Menu">
+    SELECT tm.* from t_menu tm,t_role tr,t_menu_role tmr
+    WHERE tm.id=tmr.MENU_ID AND tr.id=tmr.ROLE_ID AND tr.id=#{id}
+  </select>
+
+
+</mapper>

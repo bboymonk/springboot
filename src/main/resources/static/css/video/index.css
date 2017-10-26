@@ -87,19 +87,19 @@
 }
 
 #banner-swiper .swiper-button-prev {
-    background-image: url("../../images/icons/icon-swiper-left.png")
+    background-image: url("../../img/icons/icon-swiper-left.png")
 }
 
 #banner-swiper .swiper-button-prev:hover {
-    background-image: url("../../images/icons/icon-swiper-left-active.png")
+    background-image: url("../../img/icons/icon-swiper-left-active.png")
 }
 
 #banner-swiper .swiper-button-next {
-    background-image: url("../../images/icons/icon-swiper-right.png")
+    background-image: url("../../img/icons/icon-swiper-right.png")
 }
 
 #banner-swiper .swiper-button-next:hover {
-    background-image: url("../../images/icons/icon-swiper-right-active.png")
+    background-image: url("../../img/icons/icon-swiper-right-active.png")
 }
 
 #recommend {
