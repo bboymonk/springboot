@@ -78,8 +78,8 @@ public class CustomShiroRealm extends AuthorizingRealm {
 
     @Override
     protected void clearCachedAuthenticationInfo(PrincipalCollection principals) {
-        String username =  (String)principals.getPrimaryPrincipal();
-        SimplePrincipalCollection spc = new SimplePrincipalCollection(username, getName());
+        User user =  (User)principals.getPrimaryPrincipal();
+        SimplePrincipalCollection spc = new SimplePrincipalCollection(user.getUsername(), getName());
         super.clearCachedAuthenticationInfo(spc);
     }
 

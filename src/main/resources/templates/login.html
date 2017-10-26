@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/css/login/style.css" rel='stylesheet' type='text/css' />
     <script src="/js/angular.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <style>
+        .form-control {
+            border-radius: 8px;padding-left: 50px;
+        }
+    </style>
 </head>
 <body ng-app="indexApp" ng-controller="indexCtrl">
 
@@ -25,6 +32,10 @@
         <div class="key">
             <input type="password" placeholder="Password" ng-model="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
         </div>
+
+        <input type="tel" placeholder="验证码" class="form-control input-lg" name="CheckCode" id="txtCheckCode">
+        <img id="imgCheckCode" class="form-control input-lg" src="/captcha" title="看不清? 换一张" ng-click="ReloadCode() " style="width: 88px; padding: 0"/>
+
         <div ng-click="submit()" class="signin">
             <input type="submit" value="Login" >
         </div>
@@ -50,6 +61,18 @@
             });
         }
 
+
+        //重置验证码图片
+        $scope.ReloadCode = function() {
+            $('#imgCheckCode').attr("src",'/captcha?v=' + Math.random());
+        }
+
+        document.onkeydown = function (e) {
+            var ev = document.all ? window.event : e;
+            if (ev.keyCode == 13) {
+                $scope.submit();
+            }
+        };
 
 
 

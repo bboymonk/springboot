@@ -10,8 +10,6 @@ public class User implements Serializable{
 
     private String password;
 
-    private String salt;
-
     private String name;
 
     private String email;
@@ -46,14 +44,6 @@ public class User implements Serializable{
 
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
-    }
-
-    public String getSalt() {
-        return salt;
-    }
-
-    public void setSalt(String salt) {
-        this.salt = salt == null ? null : salt.trim();
     }
 
     public String getName() {

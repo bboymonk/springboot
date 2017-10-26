@@ -61,7 +61,7 @@ public class ShiroConfig {
         ShiroFilterFactoryBean bean = new ShiroFilterFactoryBean();
         bean.setSecurityManager(securityManager());
         bean.setLoginUrl("/admin/login");
-        bean.setSuccessUrl("/admin/welcome");
+        bean.setSuccessUrl("/admin/index");
         bean.setUnauthorizedUrl("/error");
 
         Map<String, Filter> filters = new HashMap();
@@ -78,7 +78,6 @@ public class ShiroConfig {
         chains.put("/**/logout", "logout");
         chains.put("/**","authc");
         bean.setFilterChainDefinitionMap(chains);
-        System.out.println("Shiro拦截器工厂类注入成功");
         return bean;
     }
 
@@ -90,7 +89,7 @@ public class ShiroConfig {
     public DefaultWebSecurityManager securityManager() {
         DefaultWebSecurityManager manager = new DefaultWebSecurityManager();
         manager.setRealm(customShiroRealm());
-//        manager.setCacheManager(redisCacheManager());
+        manager.setCacheManager(redisCacheManager());
         manager.setSessionManager(defaultWebSessionManager());
         return manager;
     }
@@ -102,8 +101,7 @@ public class ShiroConfig {
     @Bean(name="sessionManager")
     public DefaultWebSessionManager defaultWebSessionManager() {
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
-//        sessionManager.setCacheManager(redisCacheManager());
-
+        sessionManager.setCacheManager(redisCacheManager());
         sessionManager.setGlobalSessionTimeout(1800000);
         sessionManager.setDeleteInvalidSessions(true);
         sessionManager.setSessionValidationSchedulerEnabled(true);
@@ -119,7 +117,7 @@ public class ShiroConfig {
     @DependsOn(value="lifecycleBeanPostProcessor")
     public CustomShiroRealm customShiroRealm() {
         CustomShiroRealm customShiroRealm = new CustomShiroRealm();
-//        customShiroRealm.setCacheManager(redisCacheManager());
+        customShiroRealm.setCacheManager(redisCacheManager());
         customShiroRealm.setCredentialsMatcher(hashMatcher());
         return customShiroRealm;
     }
