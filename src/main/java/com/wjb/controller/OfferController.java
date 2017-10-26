@@ -1,16 +1,15 @@
 package com.wjb.controller;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.wjb.base.BaseController;
 import com.wjb.mapper.OfferMapper;
 import com.wjb.model.Offer;
 import com.wjb.service.OfferService;
 import com.wjb.util.Pagination;
-import com.wjb.util.SimpleResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
