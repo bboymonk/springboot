@@ -1,8 +1,10 @@
 package com.wjb.model;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
-public class Menu {
+public class Menu implements Serializable{
     private Integer id;
 
     private Integer parentId;
@@ -34,6 +36,16 @@ public class Menu {
     private Date createTime;
 
     private Date updateTime;
+
+    private List<Menu> childMenu;
+
+    public List<Menu> getChildMenu() {
+        return childMenu;
+    }
+
+    public void setChildMenu(List<Menu> childMenu) {
+        this.childMenu = childMenu;
+    }
 
     public Integer getId() {
         return id;

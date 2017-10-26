@@ -226,5 +226,16 @@
     WHERE tm.id=tmr.MENU_ID AND tr.id=tmr.ROLE_ID AND tr.id=#{id}
   </select>
 
+  <select id="rootMenu" parameterType="java.lang.Integer" resultType="com.wjb.model.Menu">
+    select tm.*
+    FROM t_menu tm,t_menu_role tmr,t_user_role tur
+    WHERE tmr.MENU_ID=tm.id AND tmr.ROLE_ID=tur.role_id AND tur.user_id=1
+    <if test="parentId != null and parentId != &quot;&quot;">
+      AND tm.PARENT_ID=#{parentId}
+    </if>
+    ORDER BY tm.RANK_SORT
+  </select>
+
+
 
 </mapper>
