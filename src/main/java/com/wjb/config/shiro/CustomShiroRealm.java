@@ -58,6 +58,9 @@ public class CustomShiroRealm extends AuthorizingRealm {
 
     /**
      * 认证
+     * 这个地方有些坑，ShiroKit.md5() 的时候，忘了加 HashIterations（散列的次数），所以一直认证失败。
+     * 原因是在 ShiroConfig 里配置了 hashMatcher，里面设置了 HashIterations 这个参数。
+     * 也可以把这个参数去掉，那 ShiroKit.md5()的时候就不用加 HashIterations 参数了。
      * @param token
      * @return
      * @throws AuthenticationException
