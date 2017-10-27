@@ -20,11 +20,6 @@ import java.util.Random;
  */
 @Controller
 public class CaptchaController extends BaseController{
-    @GetMapping("/")
-    public String index(){
-        return "index";
-    }
-
     /**
      * 获取验证码
      */

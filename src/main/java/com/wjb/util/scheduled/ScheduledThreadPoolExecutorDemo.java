@@ -21,7 +21,7 @@ public class ScheduledThreadPoolExecutorDemo {
      * @param args
      */
     public static void main(String[] args) {
-        ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(5);
-        executor.scheduleWithFixedDelay(new myTask(),5,2, TimeUnit.SECONDS);
+        ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(1);
+        executor.schedule(new myTask(),5, TimeUnit.SECONDS);
     }
 }

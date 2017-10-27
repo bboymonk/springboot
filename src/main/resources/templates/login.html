@@ -3,13 +3,14 @@
 <head>
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="/css/login/style.css" rel='stylesheet' type='text/css' />
+    <link href="/css/login/style.css" rel='stylesheet' type='text/css'/>
     <script src="/js/angular.min.js"></script>
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <style>
         .form-control {
-            border-radius: 8px;padding-left: 50px;
+            border-radius: 8px;
+            padding-left: 50px;
         }
     </style>
 </head>
@@ -17,54 +18,59 @@
 
 <h1>Welcome</h1>
 <div class="login-form">
-    <div class="close"> </div>
+    <div class="close"></div>
     <div class="head-info">
         <label class="lbl-1"> </label>
         <label class="lbl-2"> </label>
         <label class="lbl-3"> </label>
     </div>
-    <div class="clear"> </div>
+    <div class="clear"></div>
     <div class="avtar">
-        <img src="/img/login/avtar.png" />
+        <img src="/img/login/avtar.png"/>
     </div>
     <form>
-        <input type="text" class="text" placeholder="Username" ng-model="username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}" >
+        <input type="text" class="text" placeholder="Username" ng-model="username" onfocus="this.value = '';"
+               onblur="if (this.value == '') {this.value = 'Username';}">
         <div class="key">
-            <input type="password" placeholder="Password" ng-model="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+            <input type="password" placeholder="Password" ng-model="password" onfocus="this.value = '';"
+                   onblur="if (this.value == '') {this.value = 'Password';}">
+        </div>
+        <div>
+            <input type="password" placeholder="验证码" ng-model="password">
+            <img id="imgCheckCode" src="/captcha" title="看不清? 换一张" ng-click="ReloadCode() "
+                 style="width: 150px; padding: 0;">
         </div>
 
-        <input type="tel" placeholder="验证码" class="form-control input-lg" name="CheckCode" id="txtCheckCode">
-        <img id="imgCheckCode" class="form-control input-lg" src="/captcha" title="看不清? 换一张" ng-click="ReloadCode() " style="width: 88px; padding: 0"/>
-
         <div ng-click="submit()" class="signin">
-            <input type="submit" value="Login" >
+            <input type="submit" value="Login">
         </div>
     </form>
 </div>
 <script>
-    angular.module('indexApp',[]).controller('indexCtrl',function ($scope,$http) {
+    angular.module('indexApp', []).controller('indexCtrl', function ($scope, $http) {
+        $scope.captcha = '';
 
-        $scope.submit=function () {
+        $scope.submit = function () {
             $http({
-                method  : 'POST',
-                url     : '/admin/toLogin',
-                params    : {
-                    username:$scope.username,
-                    password:$scope.password
+                method: 'POST',
+                url: '/admin/toLogin',
+                params: {
+                    username: $scope.username,
+                    password: $scope.password
                 }
             }).then(function successCallback(response) {
-                if(response.data.DATA == "登录成功"){
-                    window.location.href="/admin/index";
-                }else{
-                    window.location.href="/admin/login";
+                if (response.data.DATA == "登录成功") {
+                    window.location.href = "/admin/index";
+                } else {
+                    window.location.href = "/admin/login";
                 }
             });
         }
 
 
         //重置验证码图片
-        $scope.ReloadCode = function() {
-            $('#imgCheckCode').attr("src",'/captcha?v=' + Math.random());
+        $scope.ReloadCode = function () {
+            $('#imgCheckCode').attr("src", '/captcha?v=' + Math.random());
         }
 
         document.onkeydown = function (e) {
@@ -73,7 +79,6 @@
                 $scope.submit();
             }
         };
-
 
 
     })

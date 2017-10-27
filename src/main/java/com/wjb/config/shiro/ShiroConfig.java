@@ -73,6 +73,7 @@ public class ShiroConfig {
         chains.put("/font/**","anon");
         chains.put("/img/**","anon");
         chains.put("/js/**","anon");
+        chains.put("/captcha","anon");
         chains.put("/**/login", "anon");
         chains.put("/**/toLogin","anon");
         chains.put("/**/logout", "logout");
