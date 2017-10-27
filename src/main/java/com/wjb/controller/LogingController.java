@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @Controller
 @RequestMapping("admin")
-public class LoingController extends BaseController {
+public class LogingController extends BaseController {
     @GetMapping("login")
     public String login(){
         return "login";
