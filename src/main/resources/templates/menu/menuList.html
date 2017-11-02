@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+<body ng-app="menuApp" ng-controller="menuCtrl">
+    <div ng-repeat="x in menuList">
+        <ul>
+            {{x.menuNm}}
+            <li ng-repeat="y in menus">
+                {{y.menuNm}}
+            </li>
+        </ul>
+    </div>
+
+
+</body>
+<script>
+    angular.module('menuApp',[]).controller('menuCtrl',function ($scope,$http) {
+        $scope.parentId = '';
+        $http.get("/menu/list?parent="+$scope.parentId).then(function (response) {
+            $scope.menuList=response.data.DATA;
+            console.log(response.data);
+
+
+        });
+
+
+
+
+    });
+
+
+</script>
+
+</html>

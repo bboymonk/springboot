@@ -3,9 +3,9 @@ package com.wjb.model;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-
 public class Menu implements Serializable{
     private Integer id;
+
 
     private Integer parentId;
 

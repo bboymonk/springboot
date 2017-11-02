@@ -14,7 +14,7 @@ public class Common {
 
     public final static int CAPTCHA_TIMEOUT = 300 * 1000; // 短信验证码超时时间
 
-    public final static int COOKIE_TIME = 60 * 60 * 24; // 登录cookie存在时间
+    public final static int COOKIE_TIME = 60 * 60 * 24 * 1000; // 登录cookie存在时间
 
 
 

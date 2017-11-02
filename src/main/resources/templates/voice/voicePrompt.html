@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <button>
+        <audio id="sound" autoplay="autoplay"></audio>
+    </button>
+</body>
+<script>
+    $(document).ready(function () {
+
+        function play() {
+            document.getElementById("sound").src="/script/account/voice.wav";
+        };
+
+        setInterval("checkAccount()",30000);
+
+        function checkAccount() {
+            $.ajax({
+                url: '/account/check',
+                method: 'get',
+                contentType: "application/x-www-form-urlencoded",
+                type:"text",
+                success: function (i) {
+                    if (parseInt(i) > 0){
+                        play();
+                        refresh()
+                    }
+                }
+            })
+        };
+
+
+
+
+
+    })
+
+</script>
+</html>

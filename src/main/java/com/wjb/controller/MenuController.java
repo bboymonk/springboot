@@ -20,6 +20,11 @@ public class MenuController extends BaseController {
     @Autowired
     private MenuService menuService;
 
+    @GetMapping("menuList")
+    public String menuList(){
+        return "menu/menuList";
+    }
+
     @ResponseBody
     @GetMapping("list")
     public String menus(Integer parentId){
