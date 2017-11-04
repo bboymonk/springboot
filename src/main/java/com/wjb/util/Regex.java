@@ -44,6 +44,11 @@ public class Regex {
         return match(regex, str);
     }
 
+    public static boolean isMoney(String str){
+        String regex = "(^[1-9]([0-9]+)?(\\.[0-9]{1,2})?$)|(^(0){1}$)|(^[0-9]\\.[0-9]([0-9])?$)";
+        return match(regex,str);
+    }
+
 
 
 
