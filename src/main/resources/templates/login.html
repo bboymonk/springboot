@@ -36,8 +36,8 @@
                    onblur="if (this.value == '') {this.value = 'Password';}">
         </div>
         <div>
-            <input type="password" placeholder="验证码" ng-model="captcha">
-            <img id="imgCheckCode" src="/captcha" title="看不清? 换一张" ng-click="ReloadCode() "
+            <input id="code" type="password" placeholder="验证码" ng-model="captcha">
+            <img src="/captcha" title="看不清? 换一张" ng-click="ReloadCode() "
                  style="width: 150px; padding: 0;">
         </div>
 
@@ -48,14 +48,19 @@
 </div>
 <script>
     angular.module('indexApp', []).controller('indexCtrl', function ($scope, $http) {
-
         $scope.submit = function () {
+            var code = $("#code").val();
+            if(code == null || code == ""){
+                alert("请输入验证码");
+                return;
+            }
             $http({
                 method: 'POST',
                 url: '/admin/toLogin',
                 params: {
                     username: $scope.username,
-                    password: $scope.password
+                    password: $scope.password,
+                    code:code
                 }
             }).then(function successCallback(response) {
                 if (response.data.DATA == "登录成功") {

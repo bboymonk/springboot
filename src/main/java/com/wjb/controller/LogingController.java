@@ -4,6 +4,7 @@ import com.alibaba.druid.util.StringUtils;
 import com.wjb.base.BaseController;
 import com.wjb.config.shiro.ShiroKit;
 import com.wjb.model.User;
+import com.wjb.util.StaticFinalParam;
 import com.wjb.util.common.Common;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
@@ -40,7 +42,11 @@ public class LogingController extends BaseController {
     */
     @ResponseBody
     @PostMapping("toLogin")
-    public String toLogin(User user, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+    public String toLogin(User user, String code, HttpSession session, HttpServletResponse response) throws UnsupportedEncodingException {
+        if(!code.equals(session.getAttribute(StaticFinalParam.ADMIN_VALIDATE_CODE_KEY))){
+            return successOrFail(false,null,"验证码错误");
+        }
+
         User u = (User) ShiroKit.getShiroAdmin();
         if (u != null){
             return successOrFail(false,null,"您已登录");
