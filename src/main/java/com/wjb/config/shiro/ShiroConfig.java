@@ -69,6 +69,13 @@ public class ShiroConfig {
         bean.setFilters(filters);
 
         Map<String, String> chains = new HashMap();
+//        chains.put("bower_components/**","anon");
+//        chains.put("build/**","anon");
+//        chains.put("dist/**","anon");
+//        chains.put("documentation/**","anon");
+//        chains.put("pages/**","anon");
+//        chains.put("plugins/**","anon");
+
         chains.put("/css/**","anon");
         chains.put("/font/**","anon");
         chains.put("/img/**","anon");

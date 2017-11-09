@@ -32,7 +32,7 @@ public class LogingController extends BaseController {
     }
     @GetMapping("index")
     public String index(){
-        return "welcome";
+        return "index";
     }
     /**
      *登录验证
@@ -55,10 +55,10 @@ public class LogingController extends BaseController {
             return successOrFail(false,null,"用户名密码不能为空");
         }
         // 添加cookie
-        Cookie cookie = new Cookie("WJB", URLEncoder.encode("wjb", "UTF-8"));
-        cookie.setPath("/");
-        cookie.setMaxAge(Common.COOKIE_TIME);
-        response.addCookie(cookie);
+//        Cookie cookie = new Cookie("WJB", URLEncoder.encode("wjb", "UTF-8"));
+//        cookie.setPath("/");
+//        cookie.setMaxAge(Common.COOKIE_TIME);
+//        response.addCookie(cookie);
 
         UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), user.getPassword());
         Subject subject = SecurityUtils.getSubject();

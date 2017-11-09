@@ -36,8 +36,8 @@
                    onblur="if (this.value == '') {this.value = 'Password';}">
         </div>
         <div>
-            <input id="code" type="password" placeholder="验证码" ng-model="captcha">
-            <img src="/captcha" title="看不清? 换一张" ng-click="ReloadCode() "
+            <input id="code" type="text" placeholder="验证码">
+            <img src="/captcha" title="看不清? 换一张" ng-click="ReloadCode()"
                  style="width: 150px; padding: 0;">
         </div>
 
@@ -74,7 +74,7 @@
 
         //重置验证码图片
         $scope.ReloadCode = function () {
-            $('#imgCheckCode').attr("src", '/captcha?v=' + Math.random());
+            $('#imgCheckCode').attr("src", '/captcha?v='+Math.random());
         }
 
         document.onkeydown = function (e) {
