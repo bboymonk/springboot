@@ -34,6 +34,10 @@ public class LogingController extends BaseController {
     public String index(){
         return "index";
     }
+    @GetMapping("boy")
+    public String boy(){
+        return "boy";
+    }
     /**
      *登录验证
     *@Author:wjb
