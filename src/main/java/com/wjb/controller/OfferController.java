@@ -37,7 +37,7 @@ public class OfferController extends BaseController{
         pageNum = pageNum == null ? 1 : pageNum;
         size = size == null ? 5 : size;
         try {
-            Integer count = offerMapper.count();
+            Integer count = offerService.count();
             List<Offer> list = offerService.getOffer((pageNum-1)*size,size);
             Pagination<Offer> pagination = new Pagination<>(count, size, pageNum);
             pagination.setRecordset(list);

@@ -26,6 +26,10 @@ public class ShiroKit {
         subject.getSession().stop();
     }
 
+    public static void main(String[] args) {
+        System.out.println(md5("201314","wjb"));
+    }
+
 
 
 }

@@ -16,6 +16,7 @@ public interface OfferService extends BaseService<Offer,Long>{
 
     public List<Offer> getOffer(@Param("pageNum")Integer pageNum, @Param("size")Integer size);
 
+    Integer count();
 
 
 }
