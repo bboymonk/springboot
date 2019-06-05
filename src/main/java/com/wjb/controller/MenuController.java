@@ -1,6 +1,7 @@
 package com.wjb.controller;
 
 import com.wjb.base.BaseController;
+import com.wjb.config.redis.RedisClientTemplate;
 import com.wjb.model.Menu;
 import com.wjb.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,13 @@ import java.util.List;
 public class MenuController extends BaseController {
     @Autowired
     private MenuService menuService;
+    @Autowired
+    private RedisClientTemplate template;
+
+    @GetMapping("redis")
+    public String redis(){
+        return template.get("name");
+    }
 
     @GetMapping("menuList")
     public String menuList(){
