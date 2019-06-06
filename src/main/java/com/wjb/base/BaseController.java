@@ -76,6 +76,21 @@ public class BaseController {
     }
 
 
+    /**
+     * 混合判断输出  整体抛出
+     */
+    public static String SUCCESS_FAIL_N(boolean expr, Object success, Object error) {
+        JSONObject json = new JSONObject();
+        if (expr) {
+            json.put("data", success);
+            json.put("msg", true);
+        } else {
+            json.put("data", error);
+            json.put("msg", false);
+        }
+        return json.toJSONString();
+    }
+
 
 
 
