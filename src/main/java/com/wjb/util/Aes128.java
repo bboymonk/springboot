@@ -62,8 +62,9 @@ public class Aes128 {
     }
 
     public static String decode(String src, String key) {
-        if (StringUtils.isEmpty(src) || StringUtils.isEmpty(key))
+        if (StringUtils.isEmpty(src) || StringUtils.isEmpty(key)) {
             return null;
+        }
 
         byte[] result = decrypt(Base16.decode(src), key);
         return result == null ? null : new String(result);
