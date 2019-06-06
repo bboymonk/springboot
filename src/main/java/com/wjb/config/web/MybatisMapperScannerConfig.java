@@ -1,4 +1,4 @@
-package com.wjb.config;
+package com.wjb.config.web;
 
 import com.github.pagehelper.PageHelper;
 import org.apache.log4j.Logger;

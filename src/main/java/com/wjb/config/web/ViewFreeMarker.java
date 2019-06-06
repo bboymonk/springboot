@@ -1,4 +1,4 @@
-package com.wjb.config;
+package com.wjb.config.web;
 
 import org.springframework.web.servlet.view.freemarker.FreeMarkerView;
 

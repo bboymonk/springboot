@@ -1,4 +1,4 @@
-package com.wjb.config;
+package com.wjb.config.web;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
